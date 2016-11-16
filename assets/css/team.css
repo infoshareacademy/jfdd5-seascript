@@ -5,6 +5,9 @@
     margin-left: auto;
 }
 
+#product-extra-info {
+    text-align: center;
+}
 
 #team {
     color: dimgray;
@@ -13,7 +16,7 @@
     text-align: center;
 }
 
-.team-section-title {
+.section-title {
     font-family: 'Lobster', cursive;
     font-size: 50px;
     padding: 50px;
@@ -33,7 +36,11 @@
     padding: 20px;
 }
 
+#product-extra-info {
+    height: 100vh;
+    background: #cbeeff;
 
+}
 
 
 
