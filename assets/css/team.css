@@ -1,17 +1,37 @@
-#team {
-    font-family: 'Lobster', cursive;
-    height: 100vh;
-    background: #fff;
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 
-.team-section-title {
-    font-size: 50px;
+#team {
     color: dimgray;
-    padding: 50px;
+    height: 100vh;
+    background: #fff;
     text-align: center;
 }
 
+.team-section-title {
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    padding: 50px;
+}
+
+.team-member-panel {
+    padding: 20px;
+}
+
+.team-member-name {
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.team-member-description {
+    padding: 20px;
+}
 
 
 
