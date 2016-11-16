@@ -1,12 +1,9 @@
 body{
     background: url(../image/surfer.jpg) no-repeat center center fixed;
     background-size: cover;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Lobster', cursive;
-    font-family: 'Lato', sans-serif;
 }
 
-header{
+.teaser{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,20 +14,19 @@ header{
     font-family: 'Lobster', cursive;
 }
 
-header>img{
+.teaser>img{
     position:absolute;
     top: 100px;
     align-self: center;
     filter: grayscale(100%) brightness(300%);
 }
-
-header>h1{
+.teaser>h1{
     font-size: 2em;
     align-self: center;
     color: #fff;
 }
 
-header>button{
+.teaser>button{
     position: absolute;
     bottom: 50px;
     width: 70px;
@@ -50,7 +46,7 @@ header>button{
     transition: .3s linear;
 }
 
-header>button:hover{
+.teaser>button:hover{
     background: rgb(9, 33, 75);
     transform: rotate(-90deg);
 }
