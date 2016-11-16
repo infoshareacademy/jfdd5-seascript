@@ -1,8 +1,56 @@
+body{
+    background: url(../image/surfer.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Lato', sans-serif;
+}
+
 header{
     display: flex;
-    align-content: center;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background: #296ca3;
+    background: rgba(9, 33, 75, 0.4);
+    font-family: 'Lobster', cursive;
+}
+
+header>img{
+    position:absolute;
+    top: 100px;
+    align-self: center;
+    filter: grayscale(100%) brightness(300%);
+}
+
+header>h1{
+    font-size: 2em;
+    align-self: center;
+    color: #fff;
+}
+
+header>button{
+    position: absolute;
+    bottom: 50px;
+    width: 70px;
+    height: 70px;
+    background: inherit;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    transition: .3s linear;
+}
+
+.btn-text{
+    display: block;
+    text-transform: uppercase;
+    transform: rotate(-45deg);
+    transition: .3s linear;
+}
+
+header>button:hover{
+    background: rgb(9, 33, 75);
+    transform: rotate(-90deg);
 }
