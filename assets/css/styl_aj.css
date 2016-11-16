@@ -1,11 +1,14 @@
 #team {
+    font-family: 'Lobster', cursive;
     height: 100vh;
     background: #fff;
 }
 
 
 .team-section-title {
-    font-size: 20px;
+    font-size: 50px;
+    color: dimgray;
+    padding: 50px;
     text-align: center;
 }
 
@@ -53,9 +56,9 @@
 
 
 [class^="col-"] {
-    /*float: left;*/
-    /*position: relative;*/
-    /*min-height: 1px;*/
+    float: left;
+    position: relative;
+    min-height: 1px;
     padding-right: 0;
     padding-left: 0;
     outline: 1px solid red;
