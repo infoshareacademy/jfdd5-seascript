@@ -14,19 +14,19 @@ body{
     font-family: 'Lobster', cursive;
 }
 
-.teaser>img{
+.teaser img{
     position:absolute;
     top: 100px;
     align-self: center;
     filter: grayscale(100%) brightness(300%);
 }
-.teaser>h1{
+.teaser h1{
     font-size: 2em;
     align-self: center;
     color: #fff;
 }
 
-.teaser>button{
+.teaser button{
     position: absolute;
     bottom: 50px;
     width: 70px;
@@ -46,7 +46,7 @@ body{
     transition: .3s linear;
 }
 
-.teaser>button:hover{
+.teaser button:hover{
     background: rgb(9, 33, 75);
     transform: rotate(-90deg);
 }
