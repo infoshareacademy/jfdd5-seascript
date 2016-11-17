@@ -15,8 +15,8 @@ body{
 }
 
 .teaser img{
-    position:absolute;
-    top: 100px;
+    /*position:absolute;*/
+    /*top: 100px;*/
     align-self: center;
     filter: grayscale(100%) brightness(300%);
 }
