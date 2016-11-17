@@ -1,5 +1,5 @@
 #features {
-    background-color: white;2
+    background-color: white;
     width: 100%;
     height: 100vh;
 }
@@ -11,42 +11,18 @@
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.feature-list>li>img {
-    width: 25px;
-    height: 25px;
-    margin-top: 35px;
-    margin-right: 10px;
-}
 .feature-list>li {
     display: inline-block;
     position: relative;
     width: 100%;
     color: dodgerblue;
     font-size: 2.3em;
-    margin: 35px;
     font-family: 'Lobster', cursive;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 0.9em;
+
 }
 .feature-list>li:nth-child(2nd) {
     text-align: right;
-}
-.icon-question:before {
-    content: "\ea09";
-    color: dodgerblue;
-    margin-right: 0.6em;
-}
-.icon-search:before {
-    margin-right: 0.6em;
-    content: "\e986";
-    color: dodgerblue;
-    margin-right: 0.6em;
-}
-.icon-checkmark2:before {
-    content: "\ea11";
-    color: dodgerblue;
-    margin-right: 0.6em;
-}
-.icon-whatsapp:before {
-    content: "\ea93";
-    color: dodgerblue;
-    margin-right: 0.6em;
 }

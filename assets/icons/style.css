@@ -26,14 +26,18 @@
 
 .icon-search:before {
   content: "\e986";
+  padding-right: 0.6em;
 }
 .icon-question:before {
   content: "\ea09";
+  padding-right: 0.6em;
 }
 .icon-checkmark2:before {
   content: "\ea11";
+  padding-right: 0.6em;
 }
 .icon-whatsapp:before {
   content: "\ea93";
+  padding-right: 0.6em;
 }
 
