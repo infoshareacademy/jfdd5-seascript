@@ -14,21 +14,19 @@ body{
     font-family: 'Lobster', cursive;
 }
 
+.teaser, .teaser h1{
+    text-align: center;
+}
+
 .teaser img{
-    /*position:absolute;*/
-    /*top: 100px;*/
-    align-self: center;
     filter: grayscale(100%) brightness(300%);
 }
 .teaser h1{
     font-size: 2em;
-    align-self: center;
     color: #fff;
 }
 
 .teaser button{
-    position: absolute;
-    bottom: 50px;
     width: 70px;
     height: 70px;
     background: inherit;
