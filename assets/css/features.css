@@ -1,32 +1,50 @@
 #features {
     background: url('../image/kite-surfing.png'), white;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: bottom 0 right 0;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
-#features p {
+
+.features-naglowek {
     text-align: center;
     font-family: 'Lobster', cursive;
     color: dodgerblue;
     font-size: 40px;
     padding-top: 40px;
+    padding-bottom: 100px;
+}
+
+#features p {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    color: dodgerblue;
+    /*font-size: 20px;*/
+    padding-top: 20px;
     padding-bottom: 40px;
 }
+
+.feature-list {
+    display: flex;
+    text-align: center;
+    font-size: 1.5em;
+}
+
 .feature-list>li {
-    display: inline-block;
-    position: relative;
-    width: 100%;
+    /*display: flex;*/
+    padding: 20px;
     color: dodgerblue;
-    font-size: 2.3em;
-    font-family: 'Lobster', cursive;
     padding-top: 1em;
     padding-bottom: 1em;
-    padding-left: 0.9em;
 
 }
-.feature-list>li:nth-child(2nd) {
-    text-align: right;
+.features-text {
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+
 }
-.kite-surfing img {
-    width: 300px;
-    height: 200px;
+@media screen and (min-width: 1400px) {
+    #features {
+        background-size: 600px;}
 }
