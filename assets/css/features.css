@@ -6,24 +6,34 @@
     width: 100%;
     min-height: 100vh;
 }
-#features img {
-    opacity: 0.6;
-}
-#features p {
+
+.features-naglowek {
     text-align: center;
     font-family: 'Lobster', cursive;
     color: dodgerblue;
     font-size: 40px;
     padding-top: 40px;
+    padding-bottom: 100px;
+}
+
+#features p {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    color: dodgerblue;
+    /*font-size: 20px;*/
+    padding-top: 20px;
     padding-bottom: 40px;
 }
+
 .feature-list {
-    display: block;
+    display: flex;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .feature-list>li {
-    display: inline-flex;
-    width: 50px;
+    /*display: flex;*/
+    padding: 20px;
     color: dodgerblue;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -34,7 +44,7 @@
     font-family: 'Lobster', cursive;
 
 }
-
-.feature-list>li:nth-child(2nd) {
-    text-align: right;
+@media screen and (min-width: 1400px) {
+    #features {
+        background-size: 600px;}
 }
