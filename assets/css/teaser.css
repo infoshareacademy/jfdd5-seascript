@@ -1,32 +1,37 @@
-body{
+body {
     background: url(../image/surfer.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
-.teaser{
+.teaser {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background: rgba(9, 33, 75, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     font-family: 'Lobster', cursive;
 }
 
-.teaser, .teaser h1{
+.teaser, .teaser h1 {
     text-align: center;
 }
 
-.teaser img{
+.teaser img {
     filter: grayscale(100%) brightness(300%);
 }
-.teaser h1{
+
+.teaser h1 {
     font-size: 2em;
     color: #fff;
 }
 
-.teaser button{
+.teaser div:nth-child(3) {
+    padding: 50px 0;
+}
+
+.teaser button {
     width: 70px;
     height: 70px;
     background: inherit;
@@ -37,14 +42,19 @@ body{
     transition: .3s linear;
 }
 
-.btn-text{
+.btn-text {
     display: block;
     text-transform: uppercase;
     transform: rotate(-45deg);
     transition: .3s linear;
 }
 
-.teaser button:hover{
-    background: rgb(9, 33, 75);
+.teaser button:hover {
+    background: rgba(0, 106, 154, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.6);
     transform: rotate(-90deg);
+}
+
+.teaser button:hover > .btn-text {
+    transform: rotate(90deg);
 }
