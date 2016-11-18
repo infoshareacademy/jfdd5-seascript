@@ -1,14 +1,20 @@
 #product-extra-info {
-    height: 100vh;
     background: #cbeeff;
     text-align: center;
-
 }
 
 .terms-and-conditions {
 
 }
 
-.terms-and-conditions-specification {
+.terms-specs {
+    padding: 20px;
+    text-align: justify;
 
+}
+
+.product-premier {
+    font-size: 25px;
+    padding: 20px;
+    font-family: 'Lobster', cursive;
 }

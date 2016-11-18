@@ -1,13 +1,6 @@
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
 
 #team {
     color: dimgray;
-    height: 100vh;
     background: #fff;
     text-align: center;
 }
@@ -44,6 +37,7 @@
 
 .team-photo-container img:hover {
     filter: grayscale(0);
+    transform: rotate(360deg);
     transition: .3s linear;
 }
 
