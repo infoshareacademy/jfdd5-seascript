@@ -1,6 +1,7 @@
 #contact-form{
     height: 50vh;
-    background-color:dodgerblue;
+    background-color:rgba(0,0,0,0.5);
+    text-align: center;
 }
 
 .info-newsletter {
@@ -13,7 +14,6 @@
 
 .send-mail {
     padding: 50px;
-    width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -21,4 +21,8 @@
 .send-mail input:invalid {
     border: double;
     border-color: red;
+}
+
+.checkbox {
+
 }
