@@ -1,5 +1,5 @@
 #features {
-    background-color: white;
+    background: url('../image/kite-surfing.png'), white;
     width: 100%;
     height: 100vh;
 }
@@ -25,4 +25,8 @@
 }
 .feature-list>li:nth-child(2nd) {
     text-align: right;
+}
+.kite-surfing img {
+    width: 300px;
+    height: 200px;
 }
