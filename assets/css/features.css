@@ -12,7 +12,7 @@
     font-family: 'Lobster', cursive;
     color: dodgerblue;
     font-size: 40px;
-    padding-top: 40px;
+    padding-top: 100px;
     padding-bottom: 100px;
 }
 
@@ -21,8 +21,9 @@
     font-family: 'Lobster', cursive;
     color: dodgerblue;
     /*font-size: 20px;*/
-    padding-top: 20px;
+    padding-top: 45px;
     padding-bottom: 40px;
+    width: 270px;
 }
 
 .feature-list {
@@ -42,9 +43,33 @@
 .features-text {
     font-size: 1em;
     font-family: 'Lobster', cursive;
-
+    transition: 0.3s;
 }
+
 @media screen and (min-width: 1400px) {
     #features {
         background-size: 600px;}
+}
+.feature-list>li>div {
+    border: solid 1px;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 25px;
+    padding: 25px;
+    transform: rotate(45deg);
+    transition: 0.5s ease;
+}
+.feature-icon {
+    transform: rotate(-45deg);
+    display: block;
+    transition: 0.5s ease;
+}
+.feature-list>li>div:hover {
+    transform: rotate(-90deg);
+    background-color: dodgerblue;
+}
+.feature-list>li>div:hover .feature-icon {
+    transform: rotate(90deg);
+    display: block;
+    color: white;
 }
