@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/features.css">
     <link rel="stylesheet" type="text/css" href="assets/css/features-extended.css">
     <link rel="stylesheet" type="text/css" href="assets/css/team.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css" href="assets/icons/style.css">
 </head>
 
@@ -36,7 +37,7 @@
         <h1>Welcome to the World's first-class water sports & leisure app</h1>
     </div>
     <div class="col-xs-12">
-    <button class="draw"><span class="btn-text">join</span></button>
+        <button class="draw"><span class="btn-text">join</span></button>
     </div>
 </header>
 <main>
@@ -55,17 +56,16 @@
     <section id="contact-form">
         <div>
             <h1>newsletter</h1>
-            <input type="checkbox" style="float: left">
-            <p>I agree for newsletter</p>
-            <div style="clear:both"></div>
-            <input type="checkbox" style="float: left">
-            <p>I agree for terms and conditions. We will use it only once.</p>
-            <div style="clear:both"></div>
+            <form><p><input type="checkbox" class="checkbox">I agree for newsletter</p></form>
+            <form><p><input type="checkbox" class="checkbox">I agree for terms and conditions.</p></form>
+            <p>We will use it only once.</p>
         </div>
         <div>
-            <input type="text" name="name" placeholder="NAME">
-            <input type="email" name="user-email" placeholder="EMAIL"><br/>
-            <input type="submit" value="SEND">
+            <form>
+                <input type="text" name="name" placeholder="NAME">
+                <input type="email" name="user-email" placeholder="EMAIL"><br/>
+                <input type="submit" value="SEND">
+            </form>
         </div>
     </section>
 
@@ -152,10 +152,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <p class="product-conditions"><a href="#">See the conditions of our app...</a></p>
-                        <p>Copyright: Seascript</p>
-                        <p>See us also on Facebook!</p>
-                        <p>The site was last updated on: 18.11.2016</p>
+                        <p class="product-conditions">
+                            <a href="#">See the conditions of our app...</a></p>
+                        <p><span class="icon-facebook3"></span>See us also on Facebook!</p>
                     </div>
                 </div>
             </div>
@@ -173,10 +172,11 @@
                     <div class="team-member-panel">
                         <div class="team-photo-container">
                             <div class="team-photo">
-                            <img src="assets/image/michal_photo.jpg" alt="The photo is unavailable"/>
+
+                                <img src="assets/image/michal_photo.jpg" alt="The photo is unavailable"/>
                             </div>
                         </div>
-                        <h2 class="team-member-name">Michał Pietrzyk</h2>
+                        <h2 class="team-member-name">Michał Pietrzyk<span class="icon-facebook3"></span></h2>
                         <p class="team-member-description">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                             do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -190,10 +190,10 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="team-member-panel">
-                            <div class="team-photo-container">
-                                <img src="assets/image/maciek_photo.jpg" alt="The photo is unavailable"/>
-                            </div>
-                        <h2 class="team-member-name">Maciek Borkowski</h2>
+                        <div class="team-photo-container">
+                            <img src="assets/image/maciek_photo.jpg" alt="The photo is unavailable"/>
+                        </div>
+                        <h2 class="team-member-name">Maciek Borkowski<span class="icon-facebook3"></span></h2>
                         <p class="team-member-description">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                             do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -207,10 +207,10 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="team-member-panel">
-                            <div class="team-photo-container">
-                                <img src="assets/image/tomek_photo.jpg" alt="The photo is unavailable"/>
-                            </div>
-                        <h2 class="team-member-name">Tomek Gola</h2>
+                        <div class="team-photo-container">
+                            <img src="assets/image/tomek_photo.jpg" alt="The photo is unavailable"/>
+                        </div>
+                        <h2 class="team-member-name">Tomek Gola<span class="icon-facebook3"></span></h2>
                         <p class="team-member-description">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                             do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -224,10 +224,11 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="team-member-panel">
-                            <div class="team-photo-container">
-                                <img src="assets/image/agnieszka_photo.jpg" alt="The photo is unavailable" title="team-member-agnieszka"/>
-                            </div>
-                        <h2 class="team-member-name">Agnieszka Jankowska</h2>
+                        <div class="team-photo-container">
+                            <img src="assets/image/agnieszka_photo.jpg" alt="The photo is unavailable"
+                                 title="team-member-agnieszka"/>
+                        </div>
+                        <h2 class="team-member-name">Agnieszka Jankowska<span class="icon-facebook3"></span></h2>
                         <p class="team-member-description">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                             do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -243,6 +244,15 @@
         </div>
     </section>
 </main>
-<footer></footer>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Copyright: Seascript</p>
+                <p>The site was last updated on: 18.11.2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
