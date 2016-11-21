@@ -24,7 +24,7 @@
 
 .team-member-name {
     font-family: 'Lobster', cursive;
-    font-size: 20px;
+    font-size: 22px;
     padding: 20px;
 }
 
@@ -60,11 +60,6 @@
 
 .team-member-description {
     padding: 20px;
-}
-
-.team-member-panel:hover {
-    transform:scale(1.05);
-    transition: .5s linear;
 }
 
 .icon-team {
