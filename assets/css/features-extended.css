@@ -18,3 +18,12 @@
     padding: 20px;
     font-family: 'Lobster', cursive;
 }
+
+.product-conditions {
+    padding:20px;
+}
+
+.terms:link {
+    text-decoration: none;
+
+}
