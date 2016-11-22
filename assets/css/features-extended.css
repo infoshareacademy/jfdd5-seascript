@@ -15,16 +15,10 @@
     color: #fff;
 }
 
-
-.terms-and-conditions {
-
-}
-
 .feature-description {
     padding: 20px;
     text-align: justify;
     color: #fff;
-
 }
 
 .product-premier {
@@ -37,10 +31,11 @@
     padding:20px;
 }
 
-.terms:link {
+.btn-terms {
     text-decoration: none;
-
 }
+
+/*ostylować wszystkie stany*/
 
 .feature-title {
     padding: 20px;
