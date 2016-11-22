@@ -1,15 +1,29 @@
 #product-extra-info {
     background: #006a9a;
     text-align: center;
+    padding-top: 150px;
 }
+
+.features-section-title {
+    color: #fff;
+    padding-bottom: 50px;
+    font-size: 50px;
+    font-family: 'Lobster', cursive;
+}
+
+.feature-title {
+    color: #fff;
+}
+
 
 .terms-and-conditions {
 
 }
 
-.terms-specs {
+.feature-description {
     padding: 20px;
     text-align: justify;
+    color: #fff;
 
 }
 
@@ -26,4 +40,13 @@
 .terms:link {
     text-decoration: none;
 
+}
+
+.feature-title {
+    padding: 20px;
+}
+
+.feature-photo {
+    width: 400px;
+    height: 250px;
 }
