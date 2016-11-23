@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato|Lobster|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:300,400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/css/team.css">
@@ -42,37 +42,48 @@
 </header>
 <main>
     <section id="features">
-        <h1 class="features-naglowek">This is what we could do for you</h1> <!--teksty są jeszcze do zmiany-->
-        <ul class="feature-list">
-            <li>
-                <div><span class="icon-question feature-icon"></span></div>
-                <p class="features-text">Just tell us what you need!</p></li>
-            </li>
-            <li>
-                <div><span class="icon-search feature-icon"></span></div>
-                <p class="features-text">We would give you a list of offers and you will choose most
-                    interesting.</p>
-            </li>
-            <li>
-                <div><span class="icon-checkmark2 feature-icon"></span></div>
-                <p class="features-text">We would prepare a ranking based on your choices.</p></li>
-            <li>
-                <div><span class="icon-whatsapp feature-icon"></span></div>
-                <p class="features-text">Doubts? Contact directly with providers of chosen offers.</p></li>
-        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="features-naglowek">Sea or lake? Calm or adrenaline?</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="feature-list">
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="icon-feature"><span class="icon-question feature-icon"></span></div>
+                        <p class="features-text">Just tell us what you need!</p>
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="icon-feature"><span class="icon-search feature-icon"></span></div>
+                        <p class="features-text">We would give you a list of offers and you will choose most
+                            interesting.</p>
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="icon-feature"><span class="icon-checkmark2 feature-icon"></span></div>
+                        <p class="features-text">Choose few of them and we prepare a ranking to make your decision
+                            easier.</p>
+                    </div>
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="icon-feature"><span class="icon-whatsapp feature-icon"></span></div>
+                        <p class="features-text">Doubts? Contact directly with providers of chosen offers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="contact-form">
         <div>
             <h1>newsletter</h1>
-            <form><p><input type="checkbox" class="checkbox">I agree for newsletter</p></form>
-            <form><p><input type="checkbox" class="checkbox">I agree for terms and conditions.</p></form>
+            <form><p><input type="checkbox" class="newsletter-checkbox">I agree for newsletter</p></form>
+            <form><p><input type="checkbox" class="newsletter-checkbox">I agree for terms and conditions.</p></form>
             <p>We will use it only once.</p>
         </div>
         <div>
             <form>
-                <input type="text" name="name" placeholder="NAME">
-                <input type="email" name="user-email" placeholder="EMAIL"><br/>
-                <input type="submit" value="SEND">
+                <input type="text" name="name" placeholder="Name" class="newsletter-input-text">
+                <input type="email" name="user-email" placeholder="Email" class="newsletter-input-text"><br/>
+                <input type="submit" value="SEND" class="newsletter-button">
             </form>
         </div>
     </section>
