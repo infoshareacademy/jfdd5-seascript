@@ -1,11 +1,10 @@
 #contact-form {
-    /*height: 50vh;*/
     background-color:rgba(0,0,0,0.7 );
     text-align: center;
     padding-top: 150px;
     padding-bottom: 150px;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.4em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
     color: whitesmoke;
 }
 
@@ -17,12 +16,12 @@
 }
 
 #contact-form p {
-    /*font-family: 'Lato', sans-serif;*/
+    font-weight: 300;
 }
 
 #contact-form .newsletter-checkbox {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     cursor: pointer;
 }
 
@@ -32,6 +31,7 @@
     color: black;
     margin: 20px 10px;
     text-align: center;
+    transition: box-shadow 1s;
 }
 
 .newsletter-input-text[name="name"] {
@@ -45,12 +45,11 @@
 }
 
 .newsletter-input-text:focus {
-    border-radius: 10px;
     padding: 5px;
     background-color: white;
     color: black;
     box-shadow: 0px 0px 50px 0px rgba(0, 106, 154,0.75);
-    transition: 1s;
+
 }
 
 .newsletter-button {
@@ -68,4 +67,10 @@
     background-color: #006a9a;
     border-color: #006a9a;
     transition: 1s;
+}
+
+@media screen and (max-width:800px) {
+    .newsletter-input-text {
+        border-radius: 10px;
+    }
 }
