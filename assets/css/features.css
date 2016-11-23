@@ -9,7 +9,8 @@
 
 .features-naglowek {
     text-align: center;
-    font-family: 'Roboto light', cursive;
+    font-family: 'Roboto', cursive;
+    font-weight: 400;
     color: #006a9a;
     font-size: 40px;
     padding-top: 100px;
@@ -18,7 +19,8 @@
 
 #features p {
     text-align: center;
-    font-family: 'Roboto light', cursive;
+    font-family: 'Roboto', cursive;
+    font-weight: 300;
     color: #006a9a;
     /*font-size: 20px;*/
     padding-top: 45px;
@@ -43,8 +45,11 @@
 }
 .features-text {
     font-size: 1em;
-    font-family: 'Roboto light', cursive;
+    font-family: 'Roboto', cursive;
+    font-weight: 300;
     transition: 0.3s;
+    margin-right: 0.7em;
+    margin-left: 0.7em;
 }
 
 @media screen and (min-width: 1400px) {
