@@ -1,24 +1,30 @@
 #product-extra-info {
-    background: #006a9a;
+    background: aliceblue;
     text-align: center;
     padding-top: 150px;
 }
 
 .features-section-title {
-    color: #fff;
+    color: #000;
     padding-bottom: 50px;
     font-size: 50px;
     font-family: 'Lobster', cursive;
 }
 
 .feature-title {
-    color: #fff;
+    color: #000;
+    font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 .feature-description {
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
     text-align: justify;
-    color: #fff;
+    color: #000;
 }
 
 .product-premier {
@@ -37,11 +43,54 @@
 
 /*ostylować wszystkie stany*/
 
-.feature-title {
-    padding: 20px;
-}
 
 .feature-photo {
     width: 400px;
-    height: 250px;
+    height: 300px;
+}
+
+.product-photo-container {
+    text-align: left;
+}
+
+.product-photo-container > img {
+    position: relative;
+    top:0;
+    left:0;
+    width: 100%;
+}
+
+.product-feature-icon {
+    font-size: 125px;
+    color: #fff;
+}
+
+.icon-container {
+    padding: 25px;
+}
+
+.image1 {
+    background: url(../image/tell-us.jpg);
+    /*filter: grayscale(100%);*/
+    height: 400px;
+    background-size: cover;
+
+
+}
+
+.help {
+    background: rgba(0, 0, 0, 0.5);
+    height:400px;
+}
+
+.image2 {
+    background: url(../image/surfer.jpg) no-repeat center center fixed;
+}
+
+.image3 {
+    background: url(../image/surfer.jpg) no-repeat center center fixed;
+}
+
+.image4 {
+    background: url(../image/surfer.jpg) no-repeat center center fixed;
 }

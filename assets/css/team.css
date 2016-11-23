@@ -1,13 +1,14 @@
 #team {
-    color: dimgray;
-    background: #fff;
+    color: #fff;
+    background: #006a9a;
     text-align: center;
 }
 
 .section-title {
     font-family: 'Lobster', cursive;
     font-size: 50px;
-    padding-bottom: 50px;
+    padding-top: 150px;
+    padding-bottom:50px;
 }
 
 .team-member-panel {
