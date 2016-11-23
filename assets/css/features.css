@@ -9,8 +9,9 @@
 
 .features-naglowek {
     text-align: center;
-    font-family: 'Lobster', cursive;
-    color: dodgerblue;
+    font-family: 'Roboto', cursive;
+    font-weight: 400;
+    color: #006a9a;
     font-size: 40px;
     padding-top: 100px;
     padding-bottom: 60px;
@@ -18,8 +19,9 @@
 
 #features p {
     text-align: center;
-    font-family: 'Lobster', cursive;
-    color: dodgerblue;
+    font-family: 'Roboto', cursive;
+    font-weight: 300;
+    color: #006a9a;
     /*font-size: 20px;*/
     padding-top: 45px;
     padding-bottom: 40px;
@@ -36,20 +38,26 @@
 
 .feature-list {
     padding: 20px;
-    color: dodgerblue;
+    color: #006a9a;
     padding-top: 1em;
     padding-bottom: 1em;
     /*width: 400px;*/
 }
 .features-text {
     font-size: 1em;
-    font-family: 'Lobster', cursive;
+    font-family: 'Roboto', cursive;
+    font-weight: 300;
     transition: 0.3s;
+    margin-right: 0.7em;
+    margin-left: 0.7em;
 }
 
 @media screen and (min-width: 1400px) {
     #features {
         background-size: 600px;}
+    .feature-list {
+        padding-top: 125px;
+    }
 }
 .icon-feature {
     border: solid 1px;
@@ -67,7 +75,7 @@
 }
 .icon-feature:hover {
     transform: rotate(-90deg);
-    background-color: dodgerblue;
+    background-color: #006a9a;
 }
 .icon-feature:hover .feature-icon {
     transform: rotate(90deg);
