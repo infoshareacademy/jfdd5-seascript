@@ -1,16 +1,26 @@
 .footer {
+    padding: 20px 0;
+    position: relative;
     background-color: #222;
     width: 100%;
     font-family: 'Roboto', cursive;
     font-weight: 300;
+    text-align: center;
     color: #fff;
 }
+
+.footer h1{
+    font-family: 'Lobster', cursive;
+}
+
+.product-conditions a{
+    text-decoration: underline;
+    color: #555;
+}
 .copyright {
-    position: relative;
-    float: right;
-    right: 50px;
-    top: 0;
-    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .update {
     text-align: center;
