@@ -8,6 +8,8 @@ nav {
     position: fixed;
     min-width: 100%;
     z-index: 5;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 nav ul {
