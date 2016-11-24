@@ -42,7 +42,15 @@
 }
 
 .team-member-description {
-    padding: 20px;
+    padding: 5px 20px 20px;
+}
+
+.team-member-description:before{
+    display: block;
+    content: "";
+    border-top: 1px solid #fff;
+    margin: 0 1em 1em;
+
 }
 
 .icon-team {
@@ -86,13 +94,19 @@
 }
 
 .icon-facebook3 {
-    color: #070bb2;
+    color: #fff;
 }
 
 .icon-linkedin {
-    color: #070bb2;
+    color: #fff;
 }
 
 .icon-github {
+    color: #fff;
+}
+
+.social-link:hover span{
     color: #000;
+    display: inline-block;
+    margin-top: -5px;
 }
