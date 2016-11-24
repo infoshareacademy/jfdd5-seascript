@@ -17,6 +17,7 @@
 
 #contact-form p {
     font-weight: 300;
+    line-height: 2em;
 }
 
 #contact-form .newsletter-checkbox {
@@ -69,8 +70,15 @@
     transition: 1s;
 }
 
+.contact-form-div {
+    width:20%;
+    margin:0 auto;
+    text-align:left;
+}
+
 @media screen and (max-width:800px) {
     .newsletter-input-text {
         border-radius: 10px;
     }
 }
+
