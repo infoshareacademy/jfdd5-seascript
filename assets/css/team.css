@@ -110,3 +110,11 @@
     display: inline-block;
     margin-top: -5px;
 }
+
+span {
+    color: #006a9a;
+}
+
+span:hover {
+    color: #fff;
+}
