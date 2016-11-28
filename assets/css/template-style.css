@@ -1,0 +1,16 @@
+body {
+  background: url(../image/surfer.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 400;
+  color: #fff;
+}
+
+section {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
