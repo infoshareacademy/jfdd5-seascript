@@ -35,11 +35,19 @@ nav ul li:hover {
 }
 
 li.logo, .logo {
+  padding: 1em 0.5em;
+}
+
+.logo a{
   padding: 0.5em;
 }
 
-.logo span {
-  font-size: 2em;
+.logo img {
+  max-height: 2em;
+  filter: brightness(1000%);
+  margin: 0;
+  padding:0;
+
 }
 
 
