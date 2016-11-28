@@ -1,45 +1,53 @@
 nav {
-    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
-    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=1);
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    min-width: 100%;
-    z-index: 5;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=1);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  min-width: 100%;
+  z-index: 5;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 nav ul {
-    display: flex;
-    flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 nav ul li {
-    padding: 1em 2em;
-    transition: box-shadow .3s linear, .5s linear;
+  padding: 1em 2em;
+  transition: box-shadow .3s linear, .5s linear;
 }
 
 nav ul li a {
-    text-decoration: none;
-    display: block;
-    padding: 1em;
-    color: white;
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
 }
 
 nav ul li:hover {
-    background: #006a9a;
-    box-shadow: inset 0px -12px 0px 0px rgba(0, 0, 0, 0.6);
+  background: #006a9a;
+  box-shadow: inset 0px -12px 0px 0px rgba(0, 0, 0, 0.6);
 }
 
 li.logo, .logo {
-    padding: 0.5em;
+  padding: 1em 0.5em;
 }
 
-.logo span{
-    font-size: 2em;
+.logo a{
+  padding: 0.5em;
+}
+
+.logo img {
+  max-height: 2em;
+  filter: brightness(1000%);
+  margin: 0;
+  padding:0;
+
 }
 
 

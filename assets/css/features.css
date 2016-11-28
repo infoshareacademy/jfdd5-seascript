@@ -1,5 +1,5 @@
 #features {
-    background: url('../image/kite-surfing.png'), white;
+    background: white;
     background-size: 300px;
     background-repeat: no-repeat;
     background-position: bottom -10px right 0;
@@ -7,7 +7,7 @@
     min-height: 100vh;
 }
 
-.features-naglowek {
+.features-header {
     text-align: center;
     font-family: 'Lobster', cursive;
     font-weight: 400;
@@ -53,8 +53,6 @@
 }
 
 @media screen and (min-width: 1400px) {
-    #features {
-        background-size: 600px;}
     .feature-list {
         padding-top: 125px;
     }
@@ -81,4 +79,18 @@
     transform: rotate(90deg);
     display: block;
     color: white;
+}
+figure {
+    position: relative;
+}
+.kite-surfer {
+    float: right;
+    max-width: 400px;
+}
+
+@media screen and (max-width:800px) {
+    .kite-surfer {max-width:200px;}
+}
+@media screen and (min-width:1401px) {
+    .kite-surfer {max-width:600px;}
 }

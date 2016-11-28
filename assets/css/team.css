@@ -1,4 +1,4 @@
-#team {
+.team {
     color: #fff;
     background: #006a9a;
     text-align: center;
@@ -25,10 +25,6 @@
     padding: 35px;
 }
 
-.team-photo-container {
-    text-align: center;
-}
-
 .team-photo-container img {
     width: 200px;
     height: 200px;
@@ -42,7 +38,14 @@
 }
 
 .team-member-description {
-    padding: 20px;
+    padding: 5px 20px 20px;
+}
+
+.team-member-description:before{
+    display: block;
+    content: "";
+    border-top: 1px solid #fff;
+    margin: 0 1em 1em;
 }
 
 .icon-team {
@@ -53,6 +56,7 @@
     position: relative;
     width:100%;
     height: 100%;
+    text-align: center;
 }
 
 .team-photo-container > .back {
@@ -86,13 +90,27 @@
 }
 
 .icon-facebook3 {
-    color: #070bb2;
+    color: #fff;
 }
 
 .icon-linkedin {
-    color: #070bb2;
+    color: #fff;
 }
 
 .icon-github {
+    color: #fff;
+}
+
+.social-link:hover span{
     color: #000;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+.team-member-description span {
+    color: #006a9a;
+}
+
+.team-member-description:hover span {
+    color: #fff;
 }
