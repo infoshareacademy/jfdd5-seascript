@@ -18,6 +18,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/features-extended.css">
   <link rel="stylesheet" type="text/css" href="assets/css/team.css">
   <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/carousel.css">
 </head>
 
 <body>
@@ -76,53 +77,77 @@
         </div>
       </div>
 
+
       <div class="row">
         <div class="feature-list">
-          <div class="col-sm-3 col-xs-12">
-            <div class="icon-feature">
-              <span class="icon-air feature-icon"></span>
+
+          <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <div class="col-sm-3 col-xs-12">
+                <div class="icon-feature">
+                  <span class="icon-air feature-icon"></span>
+                </div>
+                <p class="features-text">
+                  You need to splash...
+                </p>
+              </div>
             </div>
 
-            <p class="features-text">
-              You need to splash...
-            </p>
-          </div>
-          <div class="col-sm-3 col-xs-12">
-            <div class="icon-feature">
-              <span class="icon-list feature-icon">
+              <div class="mySlides fade">
+                <div class="col-sm-3 col-xs-12">
+                  <div class="icon-feature">
+                    <span class="icon-list feature-icon"></span>
+                  </div>
+                  <p class="features-text">
+                    We give you list of places. Weather conditions included.
+                  </p>
+                </div>
+              </div>
 
-              </span></div>
-            <p class="features-text">
-              We give you list of places. Weather conditions included.
-            </p>
-          </div>
+              <div class="mySlides fade">
+                <div class="col-sm-3 col-xs-12">
+                  <div class="icon-feature">
+                    <span class="icon-list-numbered feature-icon"></span>
+                  </div>
+                  <p class="features-text">
+                    Then we arrange the ranking for you. All by your choice!
+                  </p>
+                </div>
+              </div>
 
-          <div class="col-sm-3 col-xs-12">
-            <div class="icon-feature">
-              <span class="icon-list-numbered feature-icon"></span>
+              <div class="mySlides fade">
+                <div class="col-sm-3 col-xs-12">
+                  <div class="icon-feature">
+                    <span class="icon-text-document feature-icon"></span>
+                  </div>
+                  <p class="features-text">
+                    Fill the form. You're ready to go!
+                  </p>
+                </div>
+              </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+              </div>
             </div>
 
-            <p class="features-text">
-              Then we arrange the ranking for you. All by your choice!
-            </p>
-          </div>
-
-          <div class="col-sm-3 col-xs-12">
-            <div class="icon-feature">
-              <span class="icon-text-document feature-icon"></span>
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
             </div>
 
-            <p class="features-text">
-              Fill the form. You're ready to go!
-            </p>
+          </div>
+          <div class="row">
+            <figure><img class="kite-surfer" src="assets/image/kiter.png" alt="kite-surfer"
+                         class="img-responsive">
+            </figure>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <figure><img class="kite-surfer" src="assets/image/kiter.png" alt="kite-surfer" class="img-responsive">
-        </figure>
-      </div>
-    </div>
+
   </section>
   <section id="contact-form">
 
@@ -421,5 +446,8 @@
     </div>
   </div>
 </footer>
+
+<script type="text/javascript" src="assets/js/carousel.js"></script>
+
 </body>
 </html>
