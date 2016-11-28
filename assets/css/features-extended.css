@@ -1,4 +1,4 @@
-.product-extra-info {
+#product-extra-info {
     background: #fff;
     text-align: center;
     padding-top: 100px;
@@ -22,7 +22,7 @@
 }
 
 .feature-description {
-    padding-top: 40px 50px 70px 50px;
+    padding: 40px 50px 70px 50px;
     text-align: justify;
     color: #006a9a;
     font-family: 'Roboto', sans-serif;
