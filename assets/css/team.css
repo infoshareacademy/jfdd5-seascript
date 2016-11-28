@@ -1,4 +1,4 @@
-#team {
+.team {
     color: #fff;
     background: #006a9a;
     text-align: center;
@@ -25,10 +25,6 @@
     padding: 35px;
 }
 
-.team-photo-container {
-    text-align: center;
-}
-
 .team-photo-container img {
     width: 200px;
     height: 200px;
@@ -50,7 +46,6 @@
     content: "";
     border-top: 1px solid #fff;
     margin: 0 1em 1em;
-
 }
 
 .icon-team {
@@ -61,6 +56,7 @@
     position: relative;
     width:100%;
     height: 100%;
+    text-align: center;
 }
 
 .team-photo-container > .back {
@@ -111,10 +107,10 @@
     margin-top: -5px;
 }
 
-span {
+.team-member-description span {
     color: #006a9a;
 }
 
-span:hover {
+.team-member-description:hover span {
     color: #fff;
 }
