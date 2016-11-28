@@ -1,84 +1,84 @@
 #contact-form {
-    background-color:rgba(0,0,0,0.7 );
-    text-align: center;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-    color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  color: whitesmoke;
 }
 
 #contact-form h1 {
-    font-family: 'Lobster', sans-serif;
-    padding-bottom: 100px;
-    text-transform: capitalize;
-    font-size: 3em;
+  font-family: 'Lobster', sans-serif;
+  padding-bottom: 100px;
+  text-transform: capitalize;
+  font-size: 3em;
 }
 
 #contact-form p {
-    font-weight: 300;
-    line-height: 2em;
+  font-weight: 300;
+  line-height: 2em;
 }
 
 #contact-form .newsletter-checkbox {
-    width: 12px;
-    height: 12px;
-    cursor: pointer;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
 }
 
 .newsletter-input-text {
-    border: 2px solid white;
-    padding: 5px;
-    color: black;
-    margin: 20px 10px;
-    text-align: center;
-    transition: box-shadow 1s;
+  border: 2px solid white;
+  padding: 5px;
+  color: black;
+  margin: 20px 10px;
+  text-align: center;
+  transition: box-shadow 1s;
 }
 
 .newsletter-input-text[name="name"] {
-    border-bottom-left-radius:10px;
-    border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .newsletter-input-text[name="user-email"] {
-    border-bottom-right-radius:10px;
-    border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .newsletter-input-text:focus {
-    padding: 5px;
-    background-color: white;
-    color: black;
-    box-shadow: 0px 0px 50px 0px rgba(0, 106, 154,0.75);
+  padding: 5px;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 50px 0px rgba(0, 106, 154, 0.75);
 
 }
 
 .newsletter-button {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    padding: 5px 30px;
-    margin: 5px;
-    border-radius: 10px;
-    border: 1px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 30px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 
 .newsletter-button:hover {
-    background-color: #006a9a;
-    border-color: #006a9a;
-    transition: 1s;
+  background-color: #006a9a;
+  border-color: #006a9a;
+  transition: 1s;
 }
 
 .contact-form-div {
-    width:20%;
-    margin:0 auto;
-    text-align:left;
+  width: 20%;
+  margin: 0 auto;
+  text-align: left;
 }
 
-@media screen and (max-width:800px) {
-    .newsletter-input-text {
-        border-radius: 10px;
-    }
+@media screen and (max-width: 800px) {
+  .newsletter-input-text {
+    border-radius: 10px;
+  }
 }
 
