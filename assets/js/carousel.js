@@ -25,7 +25,7 @@ $('.next').click(function() {
   if (slideIndex > x.length - 1) {
     slideIndex = 0;
   }
-  
+
 
 }
 
