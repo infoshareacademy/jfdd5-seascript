@@ -5,8 +5,12 @@
     margin: auto;
 }
 
+.feature-slide {
+    display: none;
+}
+
 /* Next & previous buttons */
-.prev, .next {
+.prev-slide, .next-slide {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -51,8 +55,8 @@
     top: 0;
 }
 
-/* The dots/bullets/indicators */
-.dot {
+/* The dotBtns/bullets/indicators */
+.dot-slide {
     cursor:pointer;
     height: 13px;
     width: 13px;
