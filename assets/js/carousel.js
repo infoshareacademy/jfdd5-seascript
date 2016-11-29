@@ -4,6 +4,9 @@
 
 var slideIndex = 0;
 carousel();
+function plusSlides(n) {
+    showSlides(slideIndex = slideIndex + n);
+}
 
 var x = document.getElementsByClassName("mySlides");
 
@@ -25,7 +28,7 @@ $('.next').click(function() {
   if (slideIndex > x.length - 1) {
     slideIndex = 0;
   }
-  
+
 
 }
 
