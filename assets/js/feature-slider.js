@@ -11,9 +11,9 @@
     prevSlideBtn.addEventListener('click', backSlide);
     nextSlideBtn.addEventListener('click', nextSlide);
     for (var i = 0; i < dotBtns.length; i++) {
-      dotBtns[i].addEventListener('click', function () {
-        currentSlide(i);
-      });
+        dotBtns[i].addEventListener('click', function () {
+          currentSlide(i);
+        });
     }
   }
 
