@@ -1,18 +1,30 @@
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
     position: relative;
     margin: auto;
+
 }
 
+.feature-slide {
+
+}
+
+.slider-introduction-title {
+    position: absolute;
+    line-height: 400px;
+}
+
+.slider-photo {
+    max-width: 100%;
+}
+
+.slider-arrow {
+    line-height:400px;
+    height: 400px;
+}
 /* Next & previous buttons */
 .prev-slide, .next-slide {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
     color: blue;
     font-weight: bold;
     font-size: 18px;
@@ -22,7 +34,6 @@
 
 /* Position the "next button" to the right */
 .next {
-    right: 0;
     border-radius: 3px 0 0 3px;
 }
 
