@@ -43,8 +43,8 @@
 }
 
 .product-photo-container > img {
-    top:0;
-    left:0;
+    /*top:0;*/
+    /*left:0;*/
     width: 100%;
 }
 
@@ -57,4 +57,13 @@
     padding: 25px;
 }
 
+.feature-photo {
+  position: relative;
+  left: 3000px;
+  display: block;
+}
 
+.in-view {
+  position: relative;
+  left: 0;
+}
