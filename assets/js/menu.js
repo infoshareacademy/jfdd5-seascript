@@ -4,7 +4,6 @@ var nav_height = nav.outerHeight();
 
 $(window).on('scroll', function () {
   var cur_pos = $(this).scrollTop();
-  console.log(cur_pos);
 
   sections.each(function() {
     var top = $(this).offset().top - nav_height,
@@ -24,7 +23,7 @@ $(document).on('click', 'a[href^="#"]', function (e) {
   var id = $(this).attr('href');
   e.preventDefault();
   var pos = $(id).offset().top;
-  $('body, html').animate({scrollTop: pos}, 1500, 'easeOutQuad');
+  $('body, html').stop().animate({scrollTop: pos}, 1500, 'easeOutQuad');
 });
 
 
