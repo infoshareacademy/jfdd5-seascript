@@ -1,6 +1,3 @@
-/**
- * Created by Agnieszka on 2016-11-28.
- */
 
 var slideIndex = 0;
 carousel();
