@@ -15,14 +15,13 @@
 .feature-title {
     color: #006a9a;
     font-size: 3vw;
-    padding-top: 2vh;
+    padding-top: 20px;
     padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
-    border-bottom: 2px solid #006a9a;
 }
 
 .feature-description {
-    padding: 40px 50px 70px 50px;
+    padding: 30px;
     text-align: justify;
     color: #006a9a;
     font-family: 'Roboto', sans-serif;
