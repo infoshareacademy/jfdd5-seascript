@@ -4,7 +4,8 @@
     dotBtns = document.getElementsByClassName("dot-slide"),
     prevSlideBtn = document.getElementsByClassName("prev-slide")[0],
     nextSlideBtn = document.getElementsByClassName("next-slide")[0],
-    numberOfSlides = featureSlides.length;
+    numberOfSlides = featureSlides.length,
+    slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
 
   function addListenersToDotsAndArrows() {
     prevSlideBtn.addEventListener('click', backSlide);
@@ -17,10 +18,12 @@
   }
 
   function backSlide() {
+    clearInterval(slidesInterval);
     displaySlides(slidePos += -1);
   }
 
   function nextSlide() {
+    clearInterval(slidesInterval);
     displaySlides(slidePos += 1);
   }
 
@@ -60,7 +63,7 @@
     dotBtns[slidePos - 1].className += " active";
   }
 
-  setInterval(automaticSlidesDisplay, 3000);
+
   addListenersToDotsAndArrows();
   displaySlides(slidePos);
 })();
