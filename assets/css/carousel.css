@@ -6,12 +6,6 @@
 }
 
 /* Next & previous buttons */
-.prev, .next {
-.feature-slide {
-    display: none;
-}
-
-/* Next & previous buttons */
 .prev-slide, .next-slide {
     cursor: pointer;
     position: absolute;
