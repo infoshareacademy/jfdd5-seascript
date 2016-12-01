@@ -10,18 +10,11 @@
 
   $prevSlideBtn.on('click', backSlide);
   $nextSlideBtn.on('click', nextSlide);
-  $dotBtns.each().on('click', currentSlide);
+  $dotBtns.each(function() {
+    $(this).on('click', currentSlide);
+  });
 
 
-  function addListenersToDotsAndArrows() {
-    prevSlideBtn.addEventListener('click', backSlide);
-    nextSlideBtn.addEventListener('click', nextSlide);
-    for (var i = 0; i < dotBtns.length; i++) {
-      dotBtns[i].addEventListener('click', function () {
-        currentSlide(i);
-      });
-    }
-  }
 
   function backSlide() {
     clearInterval(slidesInterval);
@@ -52,19 +45,30 @@
       slidePos = numberOfSlides;
     }
 
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
+    $featureSlides[slidePos - 1].css('display', 'none');
+    $dotBtns[slidePos - 1].addClass('active');
   }
+
+  // function automaticSlidesDisplay() {
+  //   setupInitialStateOfSlides();
+  //   slidePos++;
+  //   if (slidePos > numberOfSlides) {
+  //     slidePos = 1;
+  //   }
+  //
+  //   featureSlides[slidePos - 1].style.display = "block";
+  //   dotBtns[slidePos - 1].className += " active";
+  // }
 
   function automaticSlidesDisplay() {
     setupInitialStateOfSlides();
-    slidePos++;
+    slidePos = slidePos + 1;
     if (slidePos > numberOfSlides) {
-      slidePos = 1;
+          slidePos = 1;
     }
+    $featureSlides[slidePos - 1].css('display', 'none');
+    $dotBtns[slidePos - 1].addClass('active');
 
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
   }
 
 
