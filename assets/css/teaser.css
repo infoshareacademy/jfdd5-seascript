@@ -79,9 +79,12 @@
   color: inherit;
 }
 
+
+/*___vvvvvv_paralaxa_vvvvvvv___*/
+
 .fala-1, .fala-2 {
-  height=150px;
-  width=auto;
+  height:150px;
+  width:100%;
 }
 
 .fala-1 {
@@ -89,5 +92,5 @@
 }
 
 .fala-2 {
-  background-color:blue:
+  background-color:blue;
 }
