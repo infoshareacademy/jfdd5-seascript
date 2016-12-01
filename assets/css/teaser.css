@@ -71,7 +71,7 @@
 .teaser button:hover {
   transform: rotate(-90deg);
   border: 1px solid transparent;
-  background: rgba(0, 106, 154, .5);
+  background: rgba(0, 106, 154, 1);
 }
 
 .teaser button:hover > .btn-text {
