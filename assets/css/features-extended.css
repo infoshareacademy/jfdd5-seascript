@@ -40,6 +40,7 @@
 
 .product-photo-container {
     text-align: left;
+    overflow: hidden;
 }
 
 .product-photo-container > img {
@@ -59,12 +60,16 @@
 
 .feature-photo {
   position: relative;
-  left: 3000px;
+  left: 500px;
   display: block;
+}
+
+.feature-photoLeft {
+  left: -500px;
 }
 
 .in-view {
    position: relative;
    left: 0;
-   transition: 2s ease;
+   transition: 1.3s ease;
  }
