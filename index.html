@@ -19,36 +19,37 @@
   <link rel="stylesheet" type="text/css" href="assets/css/team.css">
   <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
   <link rel="stylesheet" type="text/css" href="assets/css/carousel.css">
+  <link rel="stylesheet" type="text/css" href="assets/js/jquery-ui.structure.min.css">
 </head>
 
 <body>
-<nav class="nav-bar">
-  <ul class="responsive-menu">
-    <li>
+<nav class="nav-bar teaser-look">
+  <ul id="top-menu" class="responsive-menu">
+    <li class="grow">
       <a href="#features" class="link">Features</a>
     </li>
 
-    <li>
+    <li class="grow">
       <a href="#contact-form" class="link">Contact Us</a>
     </li>
 
-    <li class="logo">
-      <a href="" class="link">
+    <li class="logo grow">
+      <a href="#teaser" class="link">
         <img src="assets/image/logo.svg" alt="logo">
       </a>
     </li>
 
-    <li>
+    <li class="grow">
       <a href="#product-extra-info" class="link">Extra info</a>
     </li>
 
-    <li>
+    <li class="grow">
       <a href="#team" class="link">Our Team</a>
     </li>
   </ul>
 </nav>
 
-<header class="teaser">
+<header id="teaser" class="teaser">
   <div class="col-xs-12">
     <img src="assets/image/logo.svg" alt="logo">
     <h1>Wave</h1>
@@ -83,70 +84,115 @@
 
           <div class="slideshow-container">
 
+            <div class="col-xs-1 slider-arrow">
+              <a class="prev-slide">&#10094;</a>
+            </div>
+
             <div class="feature-slide fade">
-              <div class="col-sm-3 col-xs-12">
-                <div class="icon-feature">
-                  <span class="icon-air feature-icon"></span>
-                </div>
-                <p class="features-text">
-                  You need to splash...
-                </p>
+              <div class="col-xs-10">
+                <h2 class="slider-introduction-title"> Discover with us the water leisure world!</h2>
+                <img src="assets/image/water-sport-slider.jpg" class="slider-photo" alt="Water sport">
               </div>
             </div>
 
-              <div class="feature-slide fade">
-                <div class="col-sm-3 col-xs-12">
-                  <div class="icon-feature">
-                    <span class="icon-list feature-icon"></span>
+            <div class="feature-slide fade">
+              <div class="col-xs-10">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="icon-feature">
+                      <span class="icon-air feature-icon"></span>
+                    </div>
+                    <p class="features-text">
+                      You need to splash...
+                    </p>
                   </div>
-                  <p class="features-text">
-                    We give you list of places. Weather conditions included.
-                  </p>
-                </div>
-              </div>
 
-              <div class="feature-slide fade">
-                <div class="col-sm-3 col-xs-12">
-                  <div class="icon-feature">
-                    <span class="icon-list-numbered feature-icon"></span>
+                  <div class="col-xs-6">
+                    <div class="icon-feature">
+                      <span class="icon-list feature-icon"></span>
+                    </div>
+                    <p class="features-text">
+                      We give you list of places. Weather conditions included.
+                    </p>
                   </div>
-                  <p class="features-text">
-                    Then we arrange the ranking for you. All by your choice!
-                  </p>
                 </div>
-              </div>
-
-              <div class="feature-slide fade">
-                <div class="col-sm-3 col-xs-12">
-                  <div class="icon-feature">
-                    <span class="icon-text-document feature-icon"></span>
-                  </div>
-                  <p class="features-text">
-                    Fill the form. You're ready to go!
-                  </p>
-                </div>
-              </div>
-
-                <a class="prev-slide">&#10094;</a>
-                <a class="next-slide">&#10095;</a>
-
               </div>
             </div>
 
-            <div>
-              <span class="dot-slide"></span>
-              <span class="dot-slide"></span>
-              <span class="dot-slide"></span>
-              <span class="dot-slide"></span>
+            <div class="feature-slide fade">
+              <div class="col-xs-10">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="icon-feature">
+                      <span class="icon-list-numbered feature-icon"></span>
+                    </div>
+                    <p class="features-text">
+                      Then we arrange the ranking for you. All by your choice!
+                    </p>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <div class="icon-feature">
+                      <span class="icon-text-document feature-icon"></span>
+                    </div>
+                    <p class="features-text">
+                      Fill the form. You're ready to go!
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <div class="feature-slide fade">
+              <div class="col-xs-10">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="icon-feature">
+                      <span class="icon-list-numbered feature-icon"></span>
+                    </div>
+                    <p class="features-text">
+                      Bla
+                    </p>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <div class="icon-feature">
+                      <span class="icon-text-document feature-icon"></span>
+                    </div>
+                    <p class="features-text">
+                      Bla Bla
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-xs-1 slider-arrow">
+              <a class="next-slide">&#10095;</a>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <div>
+                  <span class="dot-slide"></span>
+                  <span class="dot-slide"></span>
+                  <span class="dot-slide"></span>
+                  <span class="dot-slide"></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <figure><img class="kite-surfer" src="assets/image/kiter.png" alt="kite-surfer"
-                         class="img-responsive">
-            </figure>
-          </div>
+
+
         </div>
+        <div class="row">
+          <figure><img class="kite-surfer" src="assets/image/kiter.png" alt="kite-surfer"
+                       class="img-responsive">
+          </figure>
+        </div>
+      </div>
 
   </section>
   <section id="contact-form">
@@ -220,6 +266,7 @@
               type of water sport or leisure.
             </p>
           </div>
+
         </div>
 
         <div class="row">
@@ -262,17 +309,17 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-md-6">
-              <h2 class="feature-title">Doubts? Contact the providers directly</h2>
-              <p class="feature-description">
-                We support you with the contact data of the providers listed on our search engine.
-                Thanks to that you can quickly obtain all the extra info you need or simply make a
-                reservation.
-              </p>
-            </div>
+          <div class="col-xs-12 col-md-6">
+            <h2 class="feature-title">Doubts? Contact the providers directly</h2>
+            <p class="feature-description">
+              We support you with the contact data of the providers listed on our search engine.
+              Thanks to that you can quickly obtain all the extra info you need or simply make a
+              reservation.
+            </p>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
   <section id="team">
@@ -347,7 +394,8 @@
             <p class="team-member-description">
               Till June 2016 Managing Director of European Financial Congress, responsible for organizing
               this conference from the very beginning. Co-founder of "Spółdzielnia" - pub offering craft
-              beers and cultural events. Now... working hard to be a front-end developer. Privately happy father of two little boys.
+              beers and cultural events. Now... working hard to be a front-end developer. Privately happy father of two
+              little boys.
             </p>
           </div>
         </div>
@@ -452,7 +500,7 @@
 =======
 <script type="text/javascript" src="assets/js/newsletter.js"></script>
 
-
->>>>>>> develop
+<script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/js/menu.js"></script>
 </body>
 </html>
