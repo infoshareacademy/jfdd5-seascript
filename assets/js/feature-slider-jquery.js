@@ -1,36 +1,41 @@
 (function() {
-  var $slidePos = 0,
-    $featureSlides = $(".feature-slide"),
-    $dotBtns = $(".dot-slide"),
-    $prevSlideBtn = $(".prev-slide")[0],
-    $nextSlideBtn = $(".next-slide")[0],
-    $numberOfSlides = $featureSlides.length,
-    $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+  var slidePos = 0,
+      $featureSlides = $(".feature-slide"),
+      $dotBtns = $(".dot-slide"),
+      $prevSlideBtn = $(".prev-slide"),
+      $nextSlideBtn = $(".next-slide"),
+      numberOfSlides = $featureSlides.length,
+      $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
 
-
-  $prevSlideBtn.on('click', backSlide);
-  $nextSlideBtn.on('click', nextSlide);
-  $dotBtns.each(function() {
-    $(this).on('click', currentSlide);
-  });
+  function addEventsToDotsAndArrows() {
+    $prevSlideBtn.on('click', backSlide);
+    $nextSlideBtn.on('click', nextSlide);
+    $.each($dotBtns, function (index) {
+      $(this).data('dot-index', (index + 1));
+      $(this).click(function () {
+        var dotIndex = $(this).data('dot-index');
+        currentSlide(dotIndex);
+      });
+    });
+  }
 
   function backSlide() {
-    $slidePos = $slidePos - 1;
+    slidePos = slidePos - 1;
     clearInterval($slidesInterval);
-    displaySlides($slidePos);
+    displaySlides();
   }
 
   function nextSlide() {
-    $slidePos = $slidePos + 1;
+    slidePos = slidePos + 1;
     clearInterval($slidesInterval);
-    displaySlides($slidePos);
+    displaySlides();
   }
 
   //nie rozumiem jak działa ta funkcja//
   function currentSlide(currentSlidePos) {
     clearInterval($slidesInterval);
-    $slidePos = currentSlidePos;
-    displaySlides(currentSlidePos);
+    slidePos = currentSlidePos;
+    displaySlides();
   }
 
   function setupInitialStateOfSlides() {
@@ -42,34 +47,34 @@
       });
   }
 
-  function displaySlides(currentSlidePos) {
+  function displaySlides() {
     setupInitialStateOfSlides();
-
-    if (currentSlidePos > $numberOfSlides) {
-      $slidePos = 1;
+    if (slidePos > numberOfSlides) {
+      slidePos = 1;
     }
 
-    if (currentSlidePos < 1) {
-      $slidePos = $numberOfSlides;
+    if (slidePos < 1) {
+      slidePos = numberOfSlides;
     }
 
-    var currentSlideNumber = $slidePos - 1;
-    $featureSlides[currentSlideNumber].css('display', 'block');
-    $dotBtns[currentSlideNumber].addClass('active');
+    var currentSlideNumber = slidePos - 1;
+    $featureSlides.eq(currentSlideNumber).css('display', 'block');
+    $dotBtns.eq(currentSlideNumber).addClass('active');
   }
 
   function automaticSlidesDisplay() {
     setupInitialStateOfSlides();
-    $slidePos = $slidePos + 1; //? //
+    slidePos = slidePos + 1; //? //
 
-    if ($slidePos > $numberOfSlides) {
-      $slidePos = 1;
+    if (slidePos > numberOfSlides) {
+      slidePos = 1;
     }
 
-    var currentSlideNumber = $slidePos - 1;
-    $featureSlides[currentSlideNumber].css('display', 'block');
-    $dotBtns[currentSlideNumber].addClass('active');
+    var currentSlideNumber = slidePos - 1;
+    $featureSlides.eq(currentSlideNumber).css('display', 'block');
+    $dotBtns.eq(currentSlideNumber).addClass('active');
   }
 
-  displaySlides($slidePos);
-})();
+  addEventsToDotsAndArrows();
+  displaySlides();
+})();;
