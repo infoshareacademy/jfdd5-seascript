@@ -5,6 +5,20 @@ var nav_height = nav.outerHeight();
 $(window).on('scroll', function () {
   var cur_pos = $(this).scrollTop();
 
+  if($(document).scrollTop() > 0){;
+    nav.addClass('section-look');
+    nav.find('a').parent().removeClass('active');
+    nav.find('a').parent().removeClass('grow');
+    nav.find('a').parent().addClass('shrink');
+
+  }
+  else{
+    nav.removeClass('section-look');
+    nav.find('a').parent().removeClass('shrink');
+    nav.find('a').parent().addClass('grow');
+  }
+
+
   sections.each(function() {
     var top = $(this).offset().top - nav_height,
       bottom = top + $(this).outerHeight();

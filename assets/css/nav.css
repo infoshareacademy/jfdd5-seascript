@@ -1,8 +1,4 @@
 nav {
-  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
-  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=1);
   display: flex;
   justify-content: center;
   position: fixed;
@@ -10,6 +6,22 @@ nav {
   z-index: 5;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  background: rgba(0,0,0,0);
+  -webkit-transition: background 500ms ease-out 1s;
+  -moz-transition: background 500ms ease-out 1s;
+  -o-transition: background 500ms ease-out 1s;
+  transition: background 500ms ease-out 1s;
+}
+
+nav.section-look{
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .9) 50%, rgba(0, 0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=1);
+  -webkit-transition: background 500ms ease-out 1s;
+  -moz-transition: background 500ms ease-out 1s;
+  -o-transition: background 500ms ease-out 1s;
+  transition: background 500ms ease-out 1s;
 }
 
 nav ul {
@@ -17,9 +29,16 @@ nav ul {
   flex-flow: row wrap;
 }
 
-nav ul li {
-  padding: 1em 2em;
+nav ul li{
   transition: box-shadow .3s linear, .5s linear;
+}
+
+nav ul li.grow{
+  padding: 1em 2em;
+}
+
+nav ul li.shrink{
+  padding: .5em 1em;
 }
 
 nav ul li a {
@@ -33,6 +52,7 @@ nav ul li:hover, .active {
   background: #006a9a;
   box-shadow: inset 0px -12px 0px 0px rgba(0, 0, 0, 0.6);
 }
+
 
 li.logo, .logo {
   padding: 1em 0.5em;
