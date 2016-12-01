@@ -70,4 +70,4 @@
 
   addListenersToDotsAndArrows();
   displaySlides(slidePos);
-})();
+})();;
