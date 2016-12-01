@@ -14,57 +14,62 @@
     $(this).on('click', currentSlide);
   });
 
-
-
   function backSlide() {
-    clearInterval(slidesInterval);
-    displaySlides(slidePos += -1);
+    $slidePos = $slidePos - 1;
+    clearInterval($slidesInterval);
+    displaySlides($slidePos);
   }
 
   function nextSlide() {
-    clearInterval(slidesInterval);
-    displaySlides(slidePos += 1);
+    $slidePos = $slidePos + 1;
+    clearInterval($slidesInterval);
+    displaySlides($slidePos);
   }
 
+  //nie rozumiem jak działa ta funkcja//
   function currentSlide(currentSlidePos) {
-    clearInterval(slidesInterval);
-    slidePos = currentSlidePos;
+    clearInterval($slidesInterval);
+    $slidePos = currentSlidePos;
     displaySlides(currentSlidePos);
   }
 
   function setupInitialStateOfSlides() {
-    for (var i = 0; i < numberOfSlides; i++) {
-      featureSlides[i].style.display = "none";
-      dotBtns[i].className = dotBtns[i].className.replace(" active", "");
-    }
+      $featureSlides.each(function() {
+        $(this).css('display', 'none')
+        });
+      $dotBtns.each(function() {
+        $(this).removeClass('active');
+      });
   }
 
   function displaySlides(currentSlidePos) {
-    if (currentSlidePos > numberOfSlides) {
-      slidePos = 1;
-    }
-
     setupInitialStateOfSlides();
-    if (currentSlidePos < 1) {
-      slidePos = numberOfSlides;
+
+    if (currentSlidePos > $numberOfSlides) {
+      $slidePos = 1;
     }
 
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
+    if (currentSlidePos < 1) {
+      $slidePos = $numberOfSlides;
+    }
+
+    var currentSlideNumber = $slidePos - 1;
+    $featureSlides[currentSlideNumber].css('display', 'block');
+    $dotBtns[currentSlideNumber].addClass('active');
   }
 
   function automaticSlidesDisplay() {
     setupInitialStateOfSlides();
-    slidePos++;
-    if (slidePos > numberOfSlides) {
-      slidePos = 1;
+    $slidePos = $slidePos + 1; //? //
+
+    if ($slidePos > $numberOfSlides) {
+      $slidePos = 1;
     }
 
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
+    var currentSlideNumber = $slidePos - 1;
+    $featureSlides[currentSlideNumber].css('display', 'block');
+    $dotBtns[currentSlideNumber].addClass('active');
   }
 
-
-  addListenersToDotsAndArrows();
-  displaySlides(slidePos);
+  displaySlides($slidePos);
 })();
