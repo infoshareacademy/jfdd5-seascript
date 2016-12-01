@@ -27,12 +27,16 @@
   }
 
   function currentSlide(currentSlidePos) {
+    clearInterval(slidesInterval);
+    slidePos = currentSlidePos;
     displaySlides(currentSlidePos);
   }
 
   function setupInitialStateOfSlides() {
-      $featureSlides.each().css('display = "none";
+    for (var i = 0; i < numberOfSlides; i++) {
+      featureSlides[i].style.display = "none";
       dotBtns[i].className = dotBtns[i].className.replace(" active", "");
+    }
   }
 
   function displaySlides(currentSlidePos) {
@@ -45,30 +49,19 @@
       slidePos = numberOfSlides;
     }
 
-    $featureSlides[slidePos - 1].css('display', 'none');
-    $dotBtns[slidePos - 1].addClass('active');
+    featureSlides[slidePos - 1].style.display = "block";
+    dotBtns[slidePos - 1].className += " active";
   }
-
-  // function automaticSlidesDisplay() {
-  //   setupInitialStateOfSlides();
-  //   slidePos++;
-  //   if (slidePos > numberOfSlides) {
-  //     slidePos = 1;
-  //   }
-  //
-  //   featureSlides[slidePos - 1].style.display = "block";
-  //   dotBtns[slidePos - 1].className += " active";
-  // }
 
   function automaticSlidesDisplay() {
     setupInitialStateOfSlides();
-    slidePos = slidePos + 1;
+    slidePos++;
     if (slidePos > numberOfSlides) {
-          slidePos = 1;
+      slidePos = 1;
     }
-    $featureSlides[slidePos - 1].css('display', 'none');
-    $dotBtns[slidePos - 1].addClass('active');
 
+    featureSlides[slidePos - 1].style.display = "block";
+    dotBtns[slidePos - 1].className += " active";
   }
 
 
