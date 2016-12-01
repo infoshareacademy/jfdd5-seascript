@@ -79,3 +79,15 @@
   color: inherit;
 }
 
+.fala-1, .fala-2 {
+  height=150px;
+  width=auto;
+}
+
+.fala-1 {
+  background-color:white;
+}
+
+.fala-2 {
+  background-color:blue:
+}
