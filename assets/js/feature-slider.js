@@ -33,7 +33,6 @@
 
   function currentSlide(currentSlidePos) {
     clearInterval(slidesInterval);
-    console.log(currentSlidePos);
     slidePos = currentSlidePos;
     displaySlides(currentSlidePos);
   }
