@@ -39,11 +39,12 @@
 
 .product-photo-container {
     text-align: left;
+    overflow: hidden;
 }
 
 .product-photo-container > img {
-    top:0;
-    left:0;
+    /*top:0;*/
+    /*left:0;*/
     width: 100%;
 }
 
@@ -56,4 +57,18 @@
     padding: 25px;
 }
 
+.feature-photo {
+  position: relative;
+  left: 500px;
+  display: block;
+}
 
+.feature-photoLeft {
+  left: -500px;
+}
+
+.in-view {
+   position: relative;
+   left: 0;
+   transition: 1.3s ease;
+ }
