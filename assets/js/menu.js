@@ -8,7 +8,7 @@ $(window).on('scroll', function () {
 
   if($(document).scrollTop() > 0){;
     nav.addClass('section-look');
-    nav.find('a').parent().removeClass('active');
+    nav.find('a').parent().removeClass('active-item');
     nav.find('a').parent().removeClass('grow');
     nav.find('a').parent().addClass('shrink');
   }
@@ -23,11 +23,9 @@ $(window).on('scroll', function () {
       bottom = top + $(this).outerHeight();
 
     if (cur_pos >= top && cur_pos <= bottom) {
-      nav.find('a').parent().removeClass('active');
-      sections.removeClass('active');
-
-      $(this).addClass('active');
-      nav.find('a[href="#'+$(this).attr('id')+'"]').parent().addClass('active');
+      nav.find('a').parent().removeClass('active-item');
+      // $(this).addClass('active-item');
+      nav.find('a[href="#'+$(this).attr('id')+'"]').parent().addClass('active-item');
     }
   });
 });
@@ -40,11 +38,9 @@ $(document).on('click', 'a[href^="#"]', function (e) {
 });
 
 $(button).on('click', function(){
-  var li = nav.find('li.menu-link');
   var ul = nav.find('ul');
-  li.stop().slideToggle();
-  ul.stop().slideToggle();
-  // li.parent().stop().slideToggle();
+  var li = nav.find('li.menu-link');
+  ul.slideToggle(300);
 });
 
 
