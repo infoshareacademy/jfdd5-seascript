@@ -11,9 +11,13 @@
     prevSlideBtn.addEventListener('click', backSlide);
     nextSlideBtn.addEventListener('click', nextSlide);
     for (var i = 0; i < dotBtns.length; i++) {
-        dotBtns[i].addEventListener('click', function () {
-          currentSlide(i);
-        });
+      var currentDot = dotBtns[i];
+      currentDot.setAttribute("data-dot-index", (i + 1));
+      currentDot.addEventListener('click', function(event) {
+        var dot = event.currentTarget;
+        var dotNumber = dot.getAttribute("data-dot-index");
+        currentSlide(dotNumber);
+      });
     }
   }
 
@@ -28,6 +32,8 @@
   }
 
   function currentSlide(currentSlidePos) {
+    clearInterval(slidesInterval);
+    slidePos = currentSlidePos;
     displaySlides(currentSlidePos);
   }
 
