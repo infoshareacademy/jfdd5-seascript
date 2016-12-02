@@ -4,6 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wave Water App</title>
   <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:300,400,700&amp;subset=latin-ext"
         rel="stylesheet">
@@ -24,12 +25,20 @@
 
 <body>
 <nav class="nav-bar teaser-look">
+
+    <div class="nav-responsive-panel">
+      <img src="assets/image/logo.svg" alt="logo">
+      <button class="nav-button">
+        <span class="icon-menu5"></span>
+      </button>
+    </div>
+
   <ul id="top-menu" class="responsive-menu">
-    <li class="grow">
+    <li class="grow menu-link">
       <a href="#features" class="link">Features</a>
     </li>
 
-    <li class="grow">
+    <li class="grow menu-link">
       <a href="#contact-form" class="link">Contact Us</a>
     </li>
 
@@ -39,11 +48,11 @@
       </a>
     </li>
 
-    <li class="grow">
+    <li class="grow menu-link">
       <a href="#product-extra-info" class="link">Extra info</a>
     </li>
 
-    <li class="grow">
+    <li class="grow menu-link">
       <a href="#team" class="link">Our Team</a>
     </li>
   </ul>
@@ -64,6 +73,18 @@
     <button>
       <span class="btn-text"><a href="#contact-form">Join</a></span>
     </button>
+  </div>
+
+  <div class="fala-1">
+    asd
+  </div>
+
+  <div class="fala-2">
+    asd
+  </div>
+
+  <div class="fala-3">
+    asd
   </div>
 </header>
 <main>
@@ -168,7 +189,6 @@
             </div>
 
 
-
             <div class="col-xs-1 slider-arrow">
               <a class="next-slide">&#10095;</a>
             </div>
@@ -188,9 +208,7 @@
 
         </div>
         <div class="row">
-          <figure><img class="kite-surfer" src="assets/image/kiter.png" alt="kite-surfer"
-                       class="img-responsive">
-          </figure>
+          <figure><img class="kite-surfer" src="assets/image/kiter.png" alt="kite-surfer"></figure>
         </div>
       </div>
 
@@ -260,10 +278,8 @@
             <h2 class="feature-title">Tell us what you need</h2>
             <p class="feature-description">
               Just give us all the inputs! First of all, we want to know what you are looking for. We can
-              find
-              the best matches only if you describe the features you search for: location, age, price
-              range,
-              type of water sport or leisure.
+              find the best matches only if you describe the features you search for: location, age, price
+              range, type of water sport or leisure.
             </p>
           </div>
 
@@ -333,7 +349,7 @@
       <div class="row team-members">
         <div class="col-xs-12 col-sm-3">
           <div class="team-member-panel">
-            <div class="team-photo-container">
+            <div class="team-photo-container" data-delay="200">
               <div class="front">
                 <img src="assets/image/michal_photo.jpg" alt="Michał Pietrzyk"/>
               </div>
@@ -369,7 +385,7 @@
 
         <div class="col-xs-12 col-sm-3">
           <div class="team-member-panel">
-            <div class="team-photo-container">
+            <div class="team-photo-container" data-delay="400">
               <div class="front">
                 <img src="assets/image/maciek_photo.jpg" alt="Maciek Borkowski"/>
               </div>
@@ -402,7 +418,7 @@
 
         <div class="col-xs-12 col-sm-3">
           <div class="team-member-panel">
-            <div class="team-photo-container">
+            <div class="team-photo-container" data-delay="600">
               <div class="front">
                 <img src="assets/image/tomek_photo.jpg" alt="Tomek Goła"/>
               </div>
@@ -434,7 +450,7 @@
 
         <div class="col-xs-12 col-sm-3">
           <div class="team-member-panel">
-            <div class="team-photo-container">
+            <div class="team-photo-container" data-delay="800">
               <div class="front">
                 <img src="assets/image/agnieszka_photo.jpg" alt="Agnieszka Jankowska"/>
               </div>
@@ -494,7 +510,8 @@
 </footer>
 
 <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="assets/js/feature-slider.js"></script>
+<script type="text/javascript" src="assets/js/parallax.js"></script>
+<script type="text/javascript" src="assets/js/feature-slideshow.js"></script>
 <<<<<<< HEAD
 <script type="text/javascript" src="assets/js/product-info.js"> </script>
 =======

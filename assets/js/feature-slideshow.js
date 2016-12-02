@@ -1,5 +1,8 @@
+/**
+ * Created by Agnieszka on 2016-12-01.
+ */
 (function() {
-  var slidePos = 0,
+  var slidePos = 1,
     featureSlides = document.getElementsByClassName("feature-slide"),
     dotBtns = document.getElementsByClassName("dot-slide"),
     prevSlideBtn = document.getElementsByClassName("prev-slide")[0],
@@ -22,19 +25,21 @@
   }
 
   function backSlide() {
+    slidePos = slidePos - 1;
     clearInterval(slidesInterval);
-    displaySlides(slidePos += -1);
+    displaySlides();
   }
 
   function nextSlide() {
+    slidePos = slidePos + 1;
     clearInterval(slidesInterval);
-    displaySlides(slidePos += 1);
+    displaySlides();
   }
 
   function currentSlide(currentSlidePos) {
     clearInterval(slidesInterval);
     slidePos = currentSlidePos;
-    displaySlides(currentSlidePos);
+    displaySlides();
   }
 
   function setupInitialStateOfSlides() {
@@ -44,32 +49,31 @@
     }
   }
 
-  function displaySlides(currentSlidePos) {
-    if (currentSlidePos > numberOfSlides) {
-      slidePos = 1;
-    }
-
-    setupInitialStateOfSlides();
-    if (currentSlidePos < 1) {
-      slidePos = numberOfSlides;
-    }
-
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
-  }
-
-  function automaticSlidesDisplay() {
-    setupInitialStateOfSlides();
-    slidePos++;
+  function activateSlide() {
     if (slidePos > numberOfSlides) {
       slidePos = 1;
     }
 
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
+    var currentSlideNumber = slidePos - 1;
+    featureSlides[currentSlideNumber].style.display = "block";
+    dotBtns[currentSlideNumber].className += " active";
   }
 
+  function displaySlides() {
+    setupInitialStateOfSlides();
+    if (slidePos < 1) {
+      slidePos = numberOfSlides;
+    }
+
+    activateSlide();
+  }
+
+  function automaticSlidesDisplay() {
+    setupInitialStateOfSlides();
+    slidePos = slidePos + 1;
+    activateSlide();
+  }
 
   addListenersToDotsAndArrows();
-  displaySlides(slidePos);
+  displaySlides();
 })();

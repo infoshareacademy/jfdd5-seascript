@@ -79,3 +79,28 @@
   color: inherit;
 }
 
+
+/*___vvvvvv_paralaxa_vvvvvvv___*/
+
+.fala-1, .fala-2, .fala-3 {
+  height:150px;
+  width:100%;
+}
+
+.fala-1 {
+  background-color:white;
+  position: relative;
+  top:0px;
+}
+
+.fala-2 {
+  background-color:blue;
+  position: relative;
+  top:0px;
+}
+
+.fala-3 {
+  background-color:green;
+  position: relative;
+  top:0px;
+}
