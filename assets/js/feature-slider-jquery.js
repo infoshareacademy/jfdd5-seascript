@@ -1,73 +1,77 @@
 (function() {
-  var $slidePos = 0,
-    $featureSlides = $(".feature-slide"),
-    $dotBtns = $(".dot-slide"),
-    $prevSlideBtn = $(".prev-slide")[0],
-    $nextSlideBtn = $(".next-slide")[0],
-    $numberOfSlides = $featureSlides.length,
-    $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+  var slidePos = 0,
+      $featureSlides = $(".feature-slide"),
+      $dotBtns = $(".dot-slide"),
+      $prevSlideBtn = $(".prev-slide"),
+      $nextSlideBtn = $(".next-slide"),
+      numberOfSlides = $featureSlides.length,
+      $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
 
-
-  $prevSlideBtn.on('click', backSlide);
-  $nextSlideBtn.on('click', nextSlide);
-  $dotBtns.each().on('click', currentSlide);
-
-
-  function addListenersToDotsAndArrows() {
-    prevSlideBtn.addEventListener('click', backSlide);
-    nextSlideBtn.addEventListener('click', nextSlide);
-    for (var i = 0; i < dotBtns.length; i++) {
-      dotBtns[i].addEventListener('click', function () {
-        currentSlide(i);
+  function addEventsToDotsAndArrows() {
+    $prevSlideBtn.on('click', backSlide);
+    $nextSlideBtn.on('click', nextSlide);
+    $.each($dotBtns, function (index) {
+      $(this).data('dot-index', (index + 1));
+      $(this).click(function () {
+        var dotIndex = $(this).data('dot-index');
+        currentSlide(dotIndex);
       });
-    }
+    });
   }
 
   function backSlide() {
-    clearInterval(slidesInterval);
-    displaySlides(slidePos += -1);
+    slidePos = slidePos - 1;
+    clearInterval($slidesInterval);
+    displaySlides();
   }
 
   function nextSlide() {
-    clearInterval(slidesInterval);
-    displaySlides(slidePos += 1);
+    slidePos = slidePos + 1;
+    clearInterval($slidesInterval);
+    displaySlides();
   }
 
   function currentSlide(currentSlidePos) {
-    displaySlides(currentSlidePos);
+    clearInterval($slidesInterval);
+    slidePos = currentSlidePos;
+    displaySlides();
   }
 
   function setupInitialStateOfSlides() {
-      $featureSlides.each().css('display = "none";
-      dotBtns[i].className = dotBtns[i].className.replace(" active", "");
+      $featureSlides.each(function() {
+        $(this).css('display', 'none')
+        });
+      $dotBtns.each(function() {
+        $(this).removeClass('active');
+      });
   }
 
-  function displaySlides(currentSlidePos) {
-    if (currentSlidePos > numberOfSlides) {
-      slidePos = 1;
-    }
 
-    setupInitialStateOfSlides();
-    if (currentSlidePos < 1) {
-      slidePos = numberOfSlides;
-    }
-
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
-  }
-
-  function automaticSlidesDisplay() {
-    setupInitialStateOfSlides();
-    slidePos++;
+  function activateSlide() {
     if (slidePos > numberOfSlides) {
       slidePos = 1;
     }
 
-    featureSlides[slidePos - 1].style.display = "block";
-    dotBtns[slidePos - 1].className += " active";
+    var currentSlideNumber = slidePos - 1;
+    $featureSlides.eq(currentSlideNumber).css('display', 'block');
+    $dotBtns.eq(currentSlideNumber).addClass('active');
   }
 
+  function displaySlides() {
+    setupInitialStateOfSlides();
+    activateSlide();
 
-  addListenersToDotsAndArrows();
-  displaySlides(slidePos);
-})();;
+    if (slidePos < 1) {
+      slidePos = numberOfSlides;
+    }
+  }
+
+  function automaticSlidesDisplay() {
+    setupInitialStateOfSlides();
+    slidePos = slidePos + 1;
+    activateSlide();
+  }
+
+  addEventsToDotsAndArrows();
+  displaySlides();
+})();
