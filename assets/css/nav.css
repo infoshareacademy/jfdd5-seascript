@@ -42,7 +42,7 @@ nav ul li a {
   color: white;
 }
 
-nav ul li:hover, .active {
+nav ul li:hover, .active-item {
   background: #006a9a;
   box-shadow: inset 0px -12px 0px 0px rgba(0, 0, 0, 0.6);
 }
@@ -68,8 +68,12 @@ nav div{
   display: none;
 }
 
-@media screen and (max-width: 800px) {
 
+
+
+
+
+@media screen and (max-width: 800px) {
   nav{
     flex-direction: column;
     transition: none;
@@ -77,24 +81,29 @@ nav div{
 
   nav div{
     background: #006a9a;
+    box-shadow: inset 0px -48px 0px 0px rgba(0, 0, 0, 0.6);
     display: block;
     width: 100%;
     flex-direction: row;
     align-self: flex-start;
+    z-index:4;
   }
 
-  nav div button,
   nav div img{
     padding: .5em;
   }
 
   nav div button{
     background: #006a9a;
+    box-shadow: inset 0px -48px 0px 0px rgba(0, 0, 0, 0.6);
     border: 0;
     color: #fff;
     height: 48px;
     width:  48px;
     float: right;
+    font-size: 2em;
+    line-height: 48px;
+    text-align: center;
   }
 
   nav div img{
@@ -109,10 +118,24 @@ nav div{
     background: #006a9a;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 4;
   }
 
   nav ul li{
+    height: 10vh;
     width:100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  nav ul li.grow{
+    padding: .25em;
+  }
+
+  nav ul li.shrink{
+    padding: .25em;
   }
 
   li.logo{
