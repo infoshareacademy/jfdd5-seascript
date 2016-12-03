@@ -83,27 +83,30 @@
 /*___vvvvvv_paralaxa_vvvvvvv___*/
 
 .fala-1, .fala-2, .fala-3 {
-   width:200%;
+  width:200%;
+  display: flex;
+  justify-content: center;
   z-index: 0;
+  overflow: hidden;
 }
 
 .fala-1 {
   background:repeat-x url("../../assets/image/wave_1.png");
-  position: relative;
-  top:0;
+  position: absolute;
+  bottom:0;
   height: 35px;
 }
 
 .fala-2 {
   background:repeat-x url("../../assets/image/wave_medium.png");
-  position: relative;
-  top:0;
+  position: absolute;
+  bottom:0;
   height: 46px;
 }
 
 .fala-3 {
   background:repeat-x url("../../assets/image/wave_3.png");
-  position: relative;
-  top:0;
+  position: absolute;
+  bottom:0;
   height: 63px;
 }
