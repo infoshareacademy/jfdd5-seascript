@@ -90,20 +90,20 @@
 .fala-1 {
   background:repeat-x url("../../assets/image/wave_1.png");
   position: relative;
-  top:0px;
+  top:0;
   height: 35px;
 }
 
 .fala-2 {
   background:repeat-x url("../../assets/image/wave_medium.png");
   position: relative;
-  top:0px;
+  top:0;
   height: 46px;
 }
 
 .fala-3 {
   background:repeat-x url("../../assets/image/wave_3.png");
   position: relative;
-  top:0px;
+  top:0;
   height: 63px;
 }
