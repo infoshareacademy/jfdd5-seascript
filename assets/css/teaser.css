@@ -5,7 +5,7 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
+  background: #006a9a;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -110,3 +110,4 @@
   bottom:0;
   height: 63px;
 }
+
