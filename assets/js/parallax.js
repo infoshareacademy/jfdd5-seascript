@@ -7,21 +7,21 @@ $(window).on('load resize scroll', parabole_tanczo);
 function parabole_tanczo() {
 
   var fala1 = {
-    marginBottom: $(document).scrollTop() * 0.15,
+    paddingTop: (-1*$(document).scrollTop() +300) * 0.2,
     marginLeft: ($(document).scrollTop() -1500) * 0.5
   };
 
   $('.fala-1').stop().css(fala1);
 
   var fala2 = {
-    paddingTop: ($(document).scrollTop() +35) * 0.15,
+    paddingTop: (-1*$(document).scrollTop() +300) * 0.3,
     marginLeft: (-1*$(document).scrollTop() -1500) * 0.8
   };
 
   $('.fala-2').stop().css(fala2);
 
   var fala3 = {
-    paddingTop: ($(document).scrollTop() +150) * 0.15,
+    paddingTop: (-1*$(document).scrollTop() +300) * 0.5,
     marginLeft: ($(document).scrollTop() -1500) * 1.3
   };
 
