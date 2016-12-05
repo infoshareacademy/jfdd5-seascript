@@ -1,16 +1,31 @@
 body {
-  margin: 20;
+  margin: 0;
   padding: 0;
 }
 
-
 table {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
 }
 
 .cell {
-  width: 10%;
-  height: 10%;
   border: 1px solid #000;
+}
+
+.kiter {
+  background-color: red;
+}
+
+.obstacle {
+  background-color: green;
+}
+
+.bonus {
+  background-color: pink;
 }
