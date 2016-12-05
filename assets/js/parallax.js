@@ -7,15 +7,19 @@ $(window).on('scroll', parabole_tanczo);
 function parabole_tanczo() {
 
   $('.fala-1').stop().css({
-    top: ($(document).scrollTop()) * 0.5
+    bottom: $(document).scrollTop() * 0.5,
+    left: $(document).scrollTop() * 0.5
+
   });
 
   $('.fala-2').stop().css({
-    top: ($(document).scrollTop()) * 0.3
+    bottom: $(document).scrollTop() * 0.3,
+    right: $(document).scrollTop() * 0.3
   });
 
   $('.fala-3').stop().css({
-    top: ($(document).scrollTop()) * 0.15
+    bottom: $(document).scrollTop() * 0.15,
+    left: $(document).scrollTop() * 0.15
   });
 
 }
