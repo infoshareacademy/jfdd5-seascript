@@ -49,7 +49,8 @@ function startGame() {
   // createObstacle();
   // createBonus();
   $('#game-cell_14_3').addClass('kiter');
-  updateGame();
+  setTimeout(updateGame(), 1000);
+  //updateGame();
 }
 
 function generateObstacle() {
@@ -96,8 +97,6 @@ function updateGame() {
     temp_obst.push(setObstacleOnCell());
   }
   console.log(temp_obst);
-
-
   setInterval(function () {
     for (var j = 0; j < temp_obst.length; j += 1) {
       var $old_cell = $('#game-cell_' + temp_obst[j].rowPos + '_' + temp_obst[j].colPos);
@@ -105,8 +104,12 @@ function updateGame() {
       temp_obst[j].rowPos += 1;
       var $new_cell = $('#game-cell_' + temp_obst[j].rowPos + '_' + temp_obst[j].colPos);
       $new_cell.addClass('obstacle');
+      if(temp_obst[j].rowPos === 10){
+        temp_obst.push(setObstacleOnCell());
+      }
     }
-  }, 1000)
+  }, 200);
+
 
 
 }
