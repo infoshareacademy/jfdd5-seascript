@@ -8,7 +8,7 @@ function parabole_tanczo() {
 
   var fala1 = {
     paddingTop: (-1*$(document).scrollTop() +300) * 0.255,
-    marginLeft: ($(document).scrollTop() -600) * 1.2
+    marginLeft: ($(document).scrollTop() +600) * 1.2
   };
 
   $('.fala-1').stop().css(fala1);
@@ -22,7 +22,7 @@ function parabole_tanczo() {
 
   var fala3 = {
     paddingTop: (-1*$(document).scrollTop() +300) * 0.555,
-    marginLeft: ($(document).scrollTop() -600) * 3
+    marginLeft: ($(document).scrollTop() +600) * 3
   };
 
   $('.fala-3').stop().css(fala3);
