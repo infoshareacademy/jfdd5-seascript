@@ -79,6 +79,10 @@ function createBonus () {
 }
 
 function updateGame () {
+  var obstacleInitPos = setObstacleOnCell();
+  obstacleInitPos.removeClass('obstacle');
+
+  obstacleInitPos.
 
 
 
