@@ -2,8 +2,8 @@ var config = {
   gameSpeed: 150,
   score: 0,
   snakeDirection: 4,
-  boardRows: 20,
-  boardColumns: 6,
+  boardRows: 15,
+  boardColumns: 7,
   obstaclesAmount: 3,
 };
 
@@ -46,44 +46,69 @@ function createGameBoard() {
 
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
-  createObstacle();
-  createBonus();
-  $('#game-cell_19_2').addClass('kiter');
+  // createObstacle();
+  // createBonus();
+  $('#game-cell_14_3').addClass('kiter');
+  setTimeout(updateGame(), 1000);
+  //updateGame();
 }
 
 function generateObstacle() {
   return {
-    xPos: Math.floor(Math.random() * (config.boardRows - 1)),
-    yPos: Math.floor(Math.random() * (config.boardColumns - 1))
+    rowPos: -1,
+    colPos: Math.floor(Math.random() * (config.boardColumns - 1))
   }
 }
 
 function setObstacleOnCell() {
-  return $('#game-cell_' + generateObstacle().xPos + '_' + generateObstacle().yPos);
-}
 
-function createObstacle() {
-  for (var i = 0; i < config.obstaclesAmount; i++) {
-    setObstacleOnCell().addClass('obstacle');
+  var obstacle = {
+    rowPos: 1,
+    colPos: Math.floor(Math.random() * (config.boardColumns - 1))
   }
+  // $obstacle_cell = $('#game-cell_' + obstacle.rowPos + '_' + obstacle.colPos);
+  // console.log($obstacle_cell);
+  return obstacle;
+
 }
 
-function createBonus () {
-  var gameBoardArea = $('.cell');
-  for (var i = 0; i < gameBoardArea.length; i++) {
-    if (!gameBoardArea.eq(i).hasClass('obstacle')) {
-      setObstacleOnCell().addClass('bonus');
-      break;
+// function createObstacle() {
+//   for (var i = 0; i < config.obstaclesAmount; i++) {
+//     setObstacleOnCell()
+//     var obst = $obstacle_cell;
+//     obst.addClass('obstacle').addClass(''+i+'');
+//     updateGame();
+//   }
+// }
+
+// function createBonus () {
+//   var gameBoardArea = $('.cell');
+//   for (var i = 0; i < gameBoardArea.length; i++) {
+//     if (!gameBoardArea.eq(i).hasClass('obstacle')) {
+//       setObstacleOnCell().addClass('bonus');
+//       break;
+//     }
+//   }
+// }
+
+function updateGame() {
+  var temp_obst = [];
+  for (var i = 0; i < config.obstaclesAmount; i += 1) {
+    temp_obst.push(setObstacleOnCell());
+  }
+  console.log(temp_obst);
+  setInterval(function () {
+    for (var j = 0; j < temp_obst.length; j += 1) {
+      var $old_cell = $('#game-cell_' + temp_obst[j].rowPos + '_' + temp_obst[j].colPos);
+      $old_cell.removeClass('obstacle');
+      temp_obst[j].rowPos += 1;
+      var $new_cell = $('#game-cell_' + temp_obst[j].rowPos + '_' + temp_obst[j].colPos);
+      $new_cell.addClass('obstacle');
+      if(temp_obst[j].rowPos === 10){
+        temp_obst.push(setObstacleOnCell());
+      }
     }
-  }
-}
-
-function updateGame () {
-  var obstacleInitPos = setObstacleOnCell();
-  obstacleInitPos.removeClass('obstacle');
-
-  obstacleInitPos.
-
+  }, 200);
 
 
 
