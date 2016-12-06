@@ -8,6 +8,7 @@
   background: #006a9a;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  overflow: hidden;
 }
 
 .teaser, .teaser h1 {
@@ -83,31 +84,25 @@
 /*___vvvvvv_paralaxa_vvvvvvv___*/
 
 .fala-1, .fala-2, .fala-3 {
-  width:200%;
-  display: flex;
-  justify-content: center;
-  z-index: 0;
-  overflow: hidden;
+  width:300%;
 }
 
 .fala-1 {
-  background:repeat-x url("../../assets/image/wave_1.png");
-  position: absolute;
-  bottom:0;
-  height: 35px;
+  background:repeat-x url("../image/wave-1-high.svg");
+  height: 400px;
+  padding-top: 35px;
+  margin-top: 250px;
+  transition: 3s;
 }
 
 .fala-2 {
-  background:repeat-x url("../../assets/image/wave_medium.png");
-  position: absolute;
-  bottom:0;
-  height: 46px;
+  background:repeat-x url("../../assets/image/wave-2-high.svg");
+  height: 400px;
+  transition: 3s;
 }
 
 .fala-3 {
-  background:repeat-x url("../../assets/image/wave_3.png");
-  position: absolute;
-  bottom:0;
-  height: 63px;
+  background:repeat-x url("../../assets/image/wave-3-high.svg");
+  height: 400px;
+  transition: 3s;
 }
-
