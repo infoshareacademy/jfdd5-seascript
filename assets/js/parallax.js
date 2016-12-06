@@ -2,24 +2,29 @@
  * Created by tgola on 30.11.16.
  */
 
-$(window).on('scroll', parabole_tanczo);
+$(window).on('load resize scroll', parabole_tanczo);
 
 function parabole_tanczo() {
 
-  $('.fala-1').stop().css({
-    bottom: $(document).scrollTop() * 0.5,
-    left: $(document).scrollTop() * 0.5
+  var fala1 = {
+    paddingTop: (-1*$(document).scrollTop() +300) * 0.255,
+    marginLeft: ($(document).scrollTop() +600) * 1.2
+  };
 
-  });
+  $('.fala-1').stop().css(fala1);
 
-  $('.fala-2').stop().css({
-    bottom: $(document).scrollTop() * 0.3,
-    right: $(document).scrollTop() * 0.3
-  });
+  var fala2 = {
+    paddingTop: (-1*$(document).scrollTop() +300) * 0.355,
+    marginLeft: (-1*$(document).scrollTop() -600) * 2
+  };
 
-  $('.fala-3').stop().css({
-    bottom: $(document).scrollTop() * 0.15,
-    left: $(document).scrollTop() * 0.15
-  });
+  $('.fala-2').stop().css(fala2);
+
+  var fala3 = {
+    paddingTop: (-1*$(document).scrollTop() +300) * 0.555,
+    marginLeft: ($(document).scrollTop() +600) * 3
+  };
+
+  $('.fala-3').stop().css(fala3);
 
 }
