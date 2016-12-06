@@ -4,7 +4,7 @@ var config = {
   snakeDirection: 4,
   boardRows: 20,
   boardColumns: 6,
-  obstaclesAmount: 3,
+  obstaclesAmount: 3
 };
 
 var controls = {
