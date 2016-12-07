@@ -6,32 +6,26 @@ var config = {
   boardColumns: 7,
   obstaclesAmount: 5,
   obstaclesFinishRow: 8,
-  surferInitPosRow: 9,
-  surferInitPosCol: 5,
-  surferInitDir: 0
+  surferInitPos: {
+    rowPos: 9,
+    colPos: 3
+  },
+  surferInitDir: "none"
 };
 
 var controls = {
   LEFT_ARROW: 37,
-  RIGHT_ARROW: 39,
-  UP_ARROW: 38,
-  DOWN_ARROW: 40
+  RIGHT_ARROW: 39
 };
 
 var directions = {
-  DOWN: 1,
-  LEFT: 2,
-  UP: 3,
-  RIGHT: 4
+  LEFT: -1,
+  RIGHT: 1
 };
 
-/*
- Function, which creates field of game
- You can adjust field of game in params a and b
- where:
- a = rows;
- b = columns;
- */
+var woodCollection = createObstaclesCollection();
+var bonus = createBonus();
+
 function createGameBoard() {
   var $gameBoard = $('<table>');
   for (var i = 0; i < config.boardRows; i++) {
@@ -50,11 +44,20 @@ function createGameBoard() {
 
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
-  $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
+  createElementNode(config.surferInitPos).addClass('kiter');
   setInterval(colorBoard, 50);
 }
 
-function generateObstacleandBonusPosition() {
+var gameInterval = setInterval(function () {
+  moveObstacles();
+  moveBonus();
+  controlSurfer();
+  collisionWithWood();
+  collectBonus();
+  increaseScore();
+}, config.gameSpeed);
+
+function generateElementPosition() {
   return {
     rowPos: -1,
     colPos: Math.floor(Math.random() * (config.boardColumns - 1))
@@ -64,77 +67,74 @@ function generateObstacleandBonusPosition() {
 function createObstaclesCollection() {
   var woodCollection = [];
   for (var i = 0; i < config.obstaclesAmount; i++) {
-    woodCollection.push(generateObstacleandBonusPosition());
+    woodCollection.push(generateElementPosition());
   }
   return woodCollection;
 }
 
-var woodCollection = createObstaclesCollection();
-var bonus = createObstaclesCollection()[0];
+function createBonus() {
+  return generateElementPosition();
+}
 
-function createObstacleNode(obstacle) {
-  return $('#game-cell_' + obstacle.rowPos + '_' + obstacle.colPos);
+function createElementNode(element) {
+  return $('#game-cell_' + element.rowPos + '_' + element.colPos);
+}
+
+function updateElementNode(element) {
+  return $('#game-cell_' + (element.rowPos += 1) + '_' + element.colPos);
 }
 
 function moveObstacles() {
   $.each(woodCollection, function(index, obstacle){
-    var previousPos = createObstacleNode(obstacle).removeClass('obstacle');
-    obstacle.rowPos +=1;
+    createElementNode(obstacle).removeClass('obstacle');
+    obstacle.rowPos += 1;
 
-    var nextPos = createObstacleNode(obstacle).addClass('obstacle');
-    if(obstacle.rowPos === config.obstaclesFinishRow){
-      woodCollection.push(generateObstacleandBonusPosition());
+    createElementNode(obstacle).addClass('obstacle');
+    if (obstacle.rowPos === config.obstaclesFinishRow) {
+      woodCollection.push(generateElementPosition());
     }
   });
-  // for (var j = 0; j < woodCollection.length; j++) {
-  //   var previousPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
-  //   previousPos.removeClass('obstacle');
-  //   woodCollection[j].rowPos += 1;
-  //   var nextPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
-  //   nextPos.addClass('obstacle');
-  //   console.log(nextPos.attr('class'));
-  //   if (woodCollection[j].rowPos === config.obstaclesFinishRow) {
-  //     woodCollection.push(generateObstacleandBonusPosition());
-  //   }
-  // }
-
 }
 
 function moveBonus() {
-  $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
-  $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus').removeClass('obstacle');
+  createElementNode(bonus).removeClass('bonus');
+  updateElementNode(bonus).addClass('bonus').removeClass('obstacle');
   if (bonus.rowPos === config.boardRows + 4) {
-    bonus = createObstaclesCollection()[0];
+    bonus = createBonus();
   }
+}
+
+function moveSurfer(value) {
+  config.surferInitPos.colPos = config.surferInitPos.colPos + value;
+  config.surferInitDir = "none";
 }
 
 function controlSurfer() {
-
-  $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).removeClass('kiter');
-
+  createElementNode(config.surferInitPos).removeClass('kiter');
   switch (config.surferInitDir) {
-    case 2:
-      config.surferInitPosCol = config.surferInitPosCol - 1;
-      config.surferInitDir = 0;
-      break; // Left
-
-    case 4:
-      config.surferInitPosCol = config.surferInitPosCol + 1;
-      config.surferInitDir = 0;
-      break;  // Right
+    case directions.LEFT:
+      moveSurfer(directions.LEFT);
+      break;
+    case directions.RIGHT:
+      moveSurfer(directions.RIGHT);
+      break;
+    default:
+      config.surferInitDir = "none";
   }
-
-  $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
-
+  createElementNode(config.surferInitPos).addClass('kiter');
 }
 
-// funkcja kolizji z przeszkodą
 function collisionWithWood() {
   var $surferCell = $('.kiter');
   if ($surferCell.hasClass('obstacle')) {
     gameOver();
-    alert('cokolwiek, ale przegrałeś');
+    showGameOverPopUp();
   }
+}
+
+function showGameOverPopUp() {
+  $('#game-over-popup').css({'top': 300 + 'px'});
+  $('#final-score').text(config.score);
 }
 
 function colorBoard() {
@@ -164,35 +164,34 @@ function colorBoard() {
   })
 }
 
-
-
 function collectBonus() {
   var $surferCell = $('.kiter');
   if ($surferCell.hasClass('bonus')) {
     console.log('śmigasz Wojk');
+    config.score = config.score + 200;
   }
 }
 
-var gameInterval = setInterval(function () {
-  moveObstacles();
-  moveBonus();
-  controlSurfer();
-  collisionWithWood();
-  collectBonus();
-
-}, config.gameSpeed);
+function increaseScore() {
+  config.score = config.score + 50;
+  $('#current-score').text(config.score);
+}
 
 function gameOver() {
   clearInterval(gameInterval);
 }
 
-$(document).keydown(function (e) {
-  if (e.keyCode === controls.LEFT_ARROW) {
-    config.surferInitDir = directions.LEFT;
-  } else if (e.keyCode === controls.RIGHT_ARROW) {
-    config.surferInitDir = directions.RIGHT;
-  }
-});
+function setControls() {
+  $(document).keydown(function (e) {
+    if (e.keyCode === controls.LEFT_ARROW) {
+      config.surferInitDir = directions.LEFT;
+    }
 
+    else if (e.keyCode === controls.RIGHT_ARROW) {
+      config.surferInitDir = directions.RIGHT;
+    }
+  });
+}
 
+setControls();
 startGame();
