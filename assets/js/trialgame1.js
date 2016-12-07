@@ -51,9 +51,7 @@ function createGameBoard() {
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
-
   setInterval(colorBoard, 50);
-
 }
 
 function generateObstacleandBonusPosition() {
@@ -74,31 +72,43 @@ function createObstaclesCollection() {
 var woodCollection = createObstaclesCollection();
 var bonus = createObstaclesCollection()[0];
 
+function createObstacleNode(obstacle) {
+  return $('#game-cell_' + obstacle.rowPos + '_' + obstacle.colPos);
+}
+
 function moveObstacles() {
-  for (var j = 0; j < woodCollection.length; j++) {
-    var previousPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos); //czy da się to jakoś ulepszyć
-    previousPos.removeClass('obstacle');
-    woodCollection[j].rowPos += 1;
-    var nextPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
-    nextPos.addClass('obstacle');
-    console.log(nextPos.attr('class'));
-    if (woodCollection[j].rowPos === config.obstaclesFinishRow) {
+  $.each(woodCollection, function(index, obstacle){
+    var previousPos = createObstacleNode(obstacle).removeClass('obstacle');
+    obstacle.rowPos +=1;
+
+    var nextPos = createObstacleNode(obstacle).addClass('obstacle');
+    if(obstacle.rowPos === config.obstaclesFinishRow){
       woodCollection.push(generateObstacleandBonusPosition());
     }
-  }
+  });
+  // for (var j = 0; j < woodCollection.length; j++) {
+  //   var previousPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
+  //   previousPos.removeClass('obstacle');
+  //   woodCollection[j].rowPos += 1;
+  //   var nextPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
+  //   nextPos.addClass('obstacle');
+  //   console.log(nextPos.attr('class'));
+  //   if (woodCollection[j].rowPos === config.obstaclesFinishRow) {
+  //     woodCollection.push(generateObstacleandBonusPosition());
+  //   }
+  // }
 
 }
 
 function moveBonus() {
   $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
   $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus').removeClass('obstacle');
-  if (bonus.rowPos === config.boardRows + 4) {                                         //problem kumulacja komórek w razie liczby 10
+  if (bonus.rowPos === config.boardRows + 4) {
     bonus = createObstaclesCollection()[0];
   }
-
 }
 
-function controlSurfer() {                                                                      //przesuwa się z nieskończoność
+function controlSurfer() {
 
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).removeClass('kiter');
 
@@ -117,6 +127,7 @@ function controlSurfer() {                                                      
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
 
 }
+
 // funkcja kolizji z przeszkodą
 function collisionWithWood() {
   var $surferCell = $('.kiter');
@@ -151,8 +162,6 @@ function colorBoard() {
       })
     }
   })
-
-
 }
 
 
@@ -164,7 +173,7 @@ function collectBonus() {
   }
 }
 
-var inta = setInterval(function () {
+var gameInterval = setInterval(function () {
   moveObstacles();
   moveBonus();
   controlSurfer();
@@ -174,7 +183,7 @@ var inta = setInterval(function () {
 }, config.gameSpeed);
 
 function gameOver() {
-  clearInterval(inta);
+  clearInterval(gameInterval);
 }
 
 $(document).keydown(function (e) {
