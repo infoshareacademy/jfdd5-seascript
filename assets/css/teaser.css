@@ -92,14 +92,17 @@
   height: 400px;
   padding-top: 35px;
   margin-top: 250px;
+  transition: 3s;
 }
 
 .fala-2 {
   background:repeat-x url("../../assets/image/wave-2-high.svg");
   height: 400px;
+  transition: 3s;
 }
 
 .fala-3 {
   background:repeat-x url("../../assets/image/wave-3-high.svg");
   height: 400px;
+  transition: 3s;
 }
