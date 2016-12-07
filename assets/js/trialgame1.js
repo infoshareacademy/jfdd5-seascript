@@ -51,7 +51,8 @@ function createGameBoard() {
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
-  updateGame();
+
+  setInterval(colorBoard, 50);
 
 }
 
@@ -117,12 +118,13 @@ function controlSurfer() {                                                      
 
 }
 // funkcja kolizji z przeszkodą
-function collisionWithWood () {
+function collisionWithWood() {
   var $surferCell = $('.kiter');
   if ($surferCell.hasClass('obstacle')) {
     gameOver();
     alert('cokolwiek, ale przegrałeś');
   }
+}
 
 function colorBoard() {
   var cellRow = Math.floor(Math.random() * (config.boardRows));
@@ -154,14 +156,8 @@ function colorBoard() {
 }
 
 
-function updateGame() {
-  setInterval(moveObstacles, config.gameSpeed);
-  setInterval(moveBonus, config.gameSpeed);
-  setInterval(colorBoard, 50);
-  setInterval(controlSurfer, 0);
-}
 
-function collectBonus () {
+function collectBonus() {
   var $surferCell = $('.kiter');
   if ($surferCell.hasClass('bonus')) {
     console.log('śmigasz Wojk');
@@ -174,9 +170,10 @@ var inta = setInterval(function () {
   controlSurfer();
   collisionWithWood();
   collectBonus();
+
 }, config.gameSpeed);
 
-function gameOver () {
+function gameOver() {
   clearInterval(inta);
 }
 
