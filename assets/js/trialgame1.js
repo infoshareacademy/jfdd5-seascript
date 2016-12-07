@@ -2,11 +2,11 @@ var config = {
   gameSpeed: 300,
   score: 0,
   snakeDirection: 4,
-  boardRows: 15,
+  boardRows: 10,
   boardColumns: 7,
   obstaclesAmount: 5,
   obstaclesFinishRow: 8,
-  surferInitPosRow: 14,
+  surferInitPosRow: 9,
   surferInitPosCol: 5,
   surferInitDir: 0
 };
@@ -124,6 +124,41 @@ function collisionWithWood () {
     alert('cokolwiek, ale przegrałeś');
   }
 
+function colorBoard() {
+  var cellRow = Math.floor(Math.random() * (config.boardRows));
+  var cellCol = Math.floor(Math.random() * (config.boardColumns));
+
+  var PickedCell = $('#game-cell_' + cellRow + '_' + cellCol);
+
+  PickedCell.animate({
+    backgroundColor: '#008dcd'
+  }, {
+    duration: 500,
+    complete: function () {
+      PickedCell.animate({
+        backgroundColor: '#007bb4'
+      }, {
+        duration: 1500,
+        complete: function () {
+          PickedCell.animate({
+            backgroundColor: '#009fe7'
+          }, {
+            duration: 1000,
+          })
+        }
+      })
+    }
+  })
+
+
+}
+
+
+function updateGame() {
+  setInterval(moveObstacles, config.gameSpeed);
+  setInterval(moveBonus, config.gameSpeed);
+  setInterval(colorBoard, 50);
+  setInterval(controlSurfer, 0);
 }
 
 function collectBonus () {
@@ -152,5 +187,6 @@ $(document).keydown(function (e) {
     config.surferInitDir = directions.RIGHT;
   }
 });
+
 
 startGame();
