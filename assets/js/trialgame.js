@@ -63,7 +63,7 @@ function generateObstacle() {
 function setObstacleOnCell() {
 
   var obstacle = {
-    rowPos: 1,
+    rowPos: -1,
     colPos: Math.floor(Math.random() * (config.boardColumns - 1))
   }
   // $obstacle_cell = $('#game-cell_' + obstacle.rowPos + '_' + obstacle.colPos);
@@ -76,7 +76,7 @@ function setObstacleOnCell() {
 //   for (var i = 0; i < config.obstaclesAmount; i++) {
 //     setObstacleOnCell()
 //     var obst = $obstacle_cell;
-//     obst.addClass('obstacle').addClass(''+i+'');
+//     obst.addClass('obstacle').addClass(''+i+'');k
 //     updateGame();
 //   }
 // }
