@@ -36,3 +36,8 @@ table {
   background: url('../image/kaszebe_turbo.jpg');
   background-size: auto;
 }
+.score-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

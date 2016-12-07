@@ -80,18 +80,21 @@ function moveObstacles() {
     woodCollection[j].rowPos += 1;
     var nextPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
     nextPos.addClass('obstacle');
+    console.log(nextPos.attr('class'));
     if (woodCollection[j].rowPos === config.obstaclesFinishRow) {
       woodCollection.push(generateObstacleandBonusPosition());
     }
   }
+
 }
 
 function moveBonus() {
-  var bonusNode = $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
-  bonusNode = $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus');
+  $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
+  $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus').removeClass('obstacle');
   if (bonus.rowPos === config.boardRows + 4) {                                         //problem kumulacja komórek w razie liczby 10
     bonus = createObstaclesCollection()[0];
   }
+
 }
 
 function controlSurfer() {                                                                      //przesuwa się z nieskończoność
@@ -111,18 +114,36 @@ function controlSurfer() {                                                      
   }
 
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
-}
-//
-// function gameOver {
-//   if()
-// }
 
-function updateGame() {
-  setInterval(moveObstacles, config.gameSpeed);
-  setInterval(moveBonus, config.gameSpeed);
-  setInterval(controlSurfer, 0);
+}
+// funkcja kolizji z przeszkodą
+function collisionWithWood () {
+  var $surferCell = $('.kiter');
+  if ($surferCell.hasClass('obstacle')) {
+    gameOver();
+    alert('cokolwiek, ale przegrałeś');
+  }
+
 }
 
+function collectBonus () {
+  var $surferCell = $('.kiter');
+  if ($surferCell.hasClass('bonus')) {
+    console.log('śmigasz Wojk');
+  }
+}
+
+var inta = setInterval(function () {
+  moveObstacles();
+  moveBonus();
+  controlSurfer();
+  collisionWithWood();
+  collectBonus();
+}, config.gameSpeed);
+
+function gameOver () {
+  clearInterval(inta);
+}
 
 $(document).keydown(function (e) {
   if (e.keyCode === controls.LEFT_ARROW) {
