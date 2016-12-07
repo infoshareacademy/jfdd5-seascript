@@ -25,7 +25,7 @@ var directions = {
   RIGHT: 4
 };
 
-var slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+
 /*
  Function, which creates field of game
  You can adjust field of game in params a and b
@@ -114,9 +114,9 @@ function controlSurfer() {                                                      
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
 }
 
-function gameOver {
-  if()
-}
+// function gameOver {
+//   if()
+// }
 
 function updateGame() {
   setInterval(moveObstacles, config.gameSpeed);
