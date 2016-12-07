@@ -1,14 +1,14 @@
 var config = {
-  gameSpeed: 150,
+  gameSpeed: 300,
   score: 0,
   snakeDirection: 4,
   boardRows: 15,
   boardColumns: 7,
-  obstaclesAmount: 3,
-  obstaclesFinishRow: 10,
+  obstaclesAmount: 5,
+  obstaclesFinishRow: 8,
   surferInitPosRow: 14,
-  surferInitPosCol: 3,
-  surferInitDir: 4
+  surferInitPosCol: 5,
+  surferInitDir: 0
 };
 
 var controls = {
@@ -51,50 +51,37 @@ function createGameBoard() {
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
-  // createBonus();
   updateGame();
 
 }
 
 function generateObstacleandBonusPosition() {
-  return  {
-    rowPos: 1,
+  return {
+    rowPos: -1,
     colPos: Math.floor(Math.random() * (config.boardColumns - 1))
   }
 }
 
-// function createBonus () {
-//   var bonus = createObstaclesCollection()[0];
-//   var bonusNode = $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos);
-//   var gameBoardArea = $('.cell');
-//   for (var i = 0; i < gameBoardArea.length; i++) {
-//     if (!gameBoardArea.eq(i).hasClass('obstacle')) {
-//       bonusNode.addClass('bonus');
-//       break;
-//     }
-//   }
-// }
-
 function createObstaclesCollection() {
-  var obstaclesCollection = [];
+  var woodCollection = [];
   for (var i = 0; i < config.obstaclesAmount; i++) {
-    obstaclesCollection.push(generateObstacleandBonusPosition());
+    woodCollection.push(generateObstacleandBonusPosition());
   }
-  return obstaclesCollection;
+  return woodCollection;
 }
 
-var obstaclesCollection = createObstaclesCollection();
+var woodCollection = createObstaclesCollection();
 var bonus = createObstaclesCollection()[0];
 
 function moveObstacles() {
-  for (var j = 0; j < obstaclesCollection.length; j++) {
-    var previousPos = $('#game-cell_' + obstaclesCollection[j].rowPos + '_' + obstaclesCollection[j].colPos); //czy da się to jakoś ulepszyć
+  for (var j = 0; j < woodCollection.length; j++) {
+    var previousPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos); //czy da się to jakoś ulepszyć
     previousPos.removeClass('obstacle');
-    obstaclesCollection[j].rowPos += 1;
-    var nextPos = $('#game-cell_' + obstaclesCollection[j].rowPos + '_' + obstaclesCollection[j].colPos);
+    woodCollection[j].rowPos += 1;
+    var nextPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
     nextPos.addClass('obstacle');
-    if (obstaclesCollection[j].rowPos === config.obstaclesFinishRow) {
-      obstaclesCollection.push(generateObstacleandBonusPosition());
+    if (woodCollection[j].rowPos === config.obstaclesFinishRow) {
+      woodCollection.push(generateObstacleandBonusPosition());
     }
   }
 }
@@ -102,7 +89,7 @@ function moveObstacles() {
 function moveBonus() {
   var bonusNode = $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
   bonusNode = $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus');
-  if (bonus.rowPos === config.obstaclesFinishRow + 5){                                         //problem kumulacja komórek w razie liczby 10
+  if (bonus.rowPos === config.boardRows + 4) {                                         //problem kumulacja komórek w razie liczby 10
     bonus = createObstaclesCollection()[0];
   }
 }
@@ -114,10 +101,12 @@ function controlSurfer() {                                                      
   switch (config.surferInitDir) {
     case 2:
       config.surferInitPosCol = config.surferInitPosCol - 1;
+      config.surferInitDir = 0;
       break; // Left
 
     case 4:
       config.surferInitPosCol = config.surferInitPosCol + 1;
+      config.surferInitDir = 0;
       break;  // Right
   }
 
@@ -129,15 +118,13 @@ function controlSurfer() {                                                      
 // }
 
 function updateGame() {
-  setInterval(moveObstacles, 200);
-  setInterval(moveBonus, 200);
-  setInterval(controlSurfer, 200);
+  setInterval(moveObstacles, config.gameSpeed);
+  setInterval(moveBonus, config.gameSpeed);
+  setInterval(controlSurfer, 0);
 }
 
 
-
-
-$(document).keydown(function(e) {
+$(document).keydown(function (e) {
   if (e.keyCode === controls.LEFT_ARROW) {
     config.surferInitDir = directions.LEFT;
   } else if (e.keyCode === controls.RIGHT_ARROW) {

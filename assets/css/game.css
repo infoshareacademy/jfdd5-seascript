@@ -6,7 +6,11 @@ body {
 table {
   height: 100vh;
   width: 100%;
+  border-spacing: 0;
+  border: 1px solid;
 }
+
+
 
 .container {
   margin-left: auto;
@@ -15,7 +19,8 @@ table {
 }
 
 .cell {
-  border: 1px solid #000;
+  background: steelblue;
+  border: 0;
 }
 
 .kiter {
@@ -23,9 +28,11 @@ table {
 }
 
 .obstacle {
-  background-color: green;
+  background: url('../image/wood.png'), steelblue;
+  background-size: cover;
 }
 
 .bonus {
-  background-color: pink;
+  background: url('../image/kaszebe_turbo.jpg');
+  background-size: auto;
 }
