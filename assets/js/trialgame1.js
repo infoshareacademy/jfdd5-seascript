@@ -133,7 +133,9 @@ function collisionWithWood() {
 }
 
 function showGameOverPopUp() {
-  $('#game-over-popup').css({'top': 300 + 'px'});
+  // $('#game-over-popup').css({'top': 300 + 'px'});
+  $('.pop-up').addClass('game-over-popup');
+  $('.game-over-popup').removeClass('pop-up');
   $('#final-score').text(config.score);
 }
 
