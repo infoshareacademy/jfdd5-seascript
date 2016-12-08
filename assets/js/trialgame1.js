@@ -113,9 +113,15 @@ function controlSurfer() {
   createElementNode(config.surferInitPos).removeClass('kiter');
   switch (config.surferInitDir) {
     case directions.LEFT:
+      if(config.surferInitPos.colPos < 1) {
+        break;
+      }
       moveSurfer(directions.LEFT);
       break;
     case directions.RIGHT:
+      if(config.surferInitPos.colPos > 5) {
+        break;
+      }
       moveSurfer(directions.RIGHT);
       break;
     default:
