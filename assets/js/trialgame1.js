@@ -1,5 +1,5 @@
 var config = {
-  gameSpeed: 300,
+  gameSpeed: 500,
   score: 0,
   snakeDirection: 4,
   boardRows: 10,
@@ -47,26 +47,25 @@ function startGame() {
   setInterval(colorBoard, 0);
   setInterval(controlSurfer, 0);
 }
-function update() {
+
+function updateGame() {
   moveObstacles();
   moveBonus();
   collisionWithWood();
   collectBonus();
   increaseScore();
 }
-var gameInterval = setInterval(update, config.gameSpeed);
+
+var gameInterval = setInterval(updateGame, config.gameSpeed);
+var gameSpeedInterval = setInterval(function () {
+  setGameSpeed();}, 2000);
 
 function setGameSpeed() {
-  config.gameSpeed = config.gameSpeed - 50;
-
+  config.gameSpeed = config.gameSpeed - 25;
   clearInterval(gameInterval);
-  gameInterval = setInterval(update, config.gameSpeed);
+  gameInterval = setInterval(updateGame, config.gameSpeed);
   $('#current-speed').text(config.gameSpeed);
 }
-
-var gameInterval2 = setInterval(function () {
-  setGameSpeed();
-}, 2000);
 
 function generateElementPosition() {
   return {
@@ -130,7 +129,7 @@ function controlSurfer() {
       moveSurfer(directions.LEFT);
       break;
     case directions.RIGHT:
-      if(config.surferInitPos.colPos > 5) {
+      if(config.surferInitPos.colPos > config.boardColumns - 2) {
         break;
       }
       moveSurfer(directions.RIGHT);
@@ -203,9 +202,8 @@ function increaseScore() {
 
 function gameOver() {
   clearInterval(gameInterval);
-  clearInterval(gameInterval2);
+  clearInterval(gameSpeedInterval);
 }
-
 
 function setControls() {
   $(document).keydown(function (e) {
@@ -218,8 +216,8 @@ function setControls() {
     }
   });
 }
-function restartGame() {
 
+function restartGame() {
   startGame();
 
 }
