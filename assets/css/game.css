@@ -41,6 +41,12 @@ table {
   top: 0;
 }
 
+.speed-container {
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+
 #game-over-popup {
   position: absolute;
   text-align: center;

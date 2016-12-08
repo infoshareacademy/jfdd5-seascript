@@ -38,7 +38,6 @@ function createGameBoard() {
       $gameBoardHeight.append($gameBoardWidth);
     }
   }
-
   $('#gameboard-container').append($gameBoard);
 }
 
@@ -47,20 +46,27 @@ function startGame() {
   createElementNode(config.surferInitPos).addClass('kiter');
   setInterval(colorBoard, 50);
 }
-
-var gameInterval = setInterval(function () {
+function update() {
   moveObstacles();
   moveBonus();
   controlSurfer();
   collisionWithWood();
   collectBonus();
   increaseScore();
-}, config.gameSpeed);
+}
+var gameInterval = setInterval(update, config.gameSpeed);
 
 function setGameSpeed() {
-  config.gameSpeed = config.gameSpeed + 100;
+  config.gameSpeed = config.gameSpeed - 50;
 
+  clearInterval(gameInterval);
+  gameInterval = setInterval(update, config.gameSpeed);
+  $('#current-speed').text(config.gameSpeed);
 }
+
+var gameInterval2 = setInterval(function () {
+  setGameSpeed();
+}, 2000);
 
 function generateElementPosition() {
   return {
@@ -190,6 +196,7 @@ function increaseScore() {
 
 function gameOver() {
   clearInterval(gameInterval);
+  clearInterval(gameInterval2);
 }
 
 
@@ -203,6 +210,11 @@ function setControls() {
       config.surferInitDir = directions.RIGHT;
     }
   });
+}
+function restartGame() {
+
+  startGame();
+
 }
 
 setControls();
