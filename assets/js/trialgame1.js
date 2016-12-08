@@ -48,6 +48,7 @@ function startGame() {
   createElementNode(config.surferInitPos).addClass('kiter');
   setInterval(colorBoard, 0);
   setInterval(controlSurfer, 0);
+  setupMainIntervals();
 }
 
 function updateGame() {
@@ -58,15 +59,17 @@ function updateGame() {
   increaseScore();
 }
 
-var gameInterval = setInterval(updateGame, config.gameSpeed);
-var gameSpeedInterval = setInterval(function () {
-  setGameSpeed();}, 2000);
-
 function setGameSpeed() {
   config.gameSpeed = config.gameSpeed - 10;
   clearInterval(gameInterval);
   gameInterval = setInterval(updateGame, config.gameSpeed);
   $('#current-speed').text(config.gameSpeed);
+}
+
+function setupMainIntervals(){
+  gameInterval = setInterval(updateGame, config.gameSpeed);
+  gameSpeedInterval = setInterval(function () {
+    setGameSpeed();}, 2000);
 }
 
 function generateElementPosition() {
@@ -221,6 +224,8 @@ function setControls() {
 }
 
 function restartGame() {
+  config.score = 0;
+  config.gameSpeed = 500;
   startGame();
   updateGame();
   $('#game-over-popup').css({'top': -1000 + 'px'});
