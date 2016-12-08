@@ -57,6 +57,12 @@ var gameInterval = setInterval(function () {
   increaseScore();
 }, config.gameSpeed);
 
+function setGameSpeed() {
+  config.gameSpeed = config.gameSpeed + 100;
+  
+}
+
+setInterval()
 function generateElementPosition() {
   return {
     rowPos: -1,
@@ -186,6 +192,7 @@ function increaseScore() {
 function gameOver() {
   clearInterval(gameInterval);
 }
+
 
 function setControls() {
   $(document).keydown(function (e) {
