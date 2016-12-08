@@ -3,7 +3,12 @@ table {
   height: 100vh;
   width: 100%;
   border-spacing: 0;
-  border: 1px solid;
+  border-style: solid;
+  border-width: 0px 60px 0px 60px;
+  -moz-border-image: url(https://image.freepik.com/free-photo/sand-texture_1203-2093.jpg) 0 50 0 40 repeat;
+  -webkit-border-image: url(https://image.freepik.com/free-photo/sand-texture_1203-2093.jpg) 0 50 0 40 repeat;
+  -o-border-image: url(https://image.freepik.com/free-photo/sand-texture_1203-2093.jpg) 0 50 0 40 repeat;
+  border-image: url(https://image.freepik.com/free-photo/sand-texture_1203-2093.jpg) 0 50 0 40 repeat;
 }
 
 .container {
@@ -31,11 +36,11 @@ table {
   background: url('../image/kaszeb.png') no-repeat, #008dcd;
   background-size: 100% auto;
 }
-.score-container {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+/*.score-container {*/
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*top: 0;*/
+/*}*/
 
 #game-over-popup {
   position: absolute;

@@ -3,7 +3,7 @@ var config = {
   score: 0,
   snakeDirection: 4,
   boardRows: 10,
-  boardColumns: 10,
+  boardColumns: 9,
   obstaclesAmount: 7,
   obstaclesFinishRow: 8,
   surferInitPos: {
