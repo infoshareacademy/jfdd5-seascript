@@ -10,8 +10,6 @@ table {
   border: 1px solid;
 }
 
-
-
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -41,4 +39,17 @@ table {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+#game-over-popup {
+  position: absolute;
+  text-align: center;
+  padding: 20px;
+  background-color: deeppink;
+  top: -1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  transition: top .3s linear;
 }
