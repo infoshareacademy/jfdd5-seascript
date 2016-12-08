@@ -6,26 +6,50 @@ body {
 table {
   height: 100vh;
   width: 100%;
+  border-spacing: 0;
+  border: 1px solid;
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 50%;
 }
 
 .cell {
-  border: 1px solid #000;
+  background: #008dcd;
+  border: 0;
 }
 
 .kiter {
-  background-color: red;
+  background: url('../image/kiter-right.png') no-repeat, #008dcd;
+  background-size: 100% auto;
 }
 
 .obstacle {
-  background-color: green;
+  background: url('../image/wood.png') no-repeat, #008dcd;
+  background-size: 100% auto;
 }
 
 .bonus {
-  background-color: pink;
+  background: url('../image/kaszeb.png') no-repeat, #008dcd;
+  background-size: 100% auto;
+}
+.score-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#game-over-popup {
+  position: absolute;
+  text-align: center;
+  padding: 20px;
+  background-color: deeppink;
+  top: -1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  transition: top .3s linear;
 }
