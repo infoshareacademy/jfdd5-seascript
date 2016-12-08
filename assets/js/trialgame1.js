@@ -57,6 +57,11 @@ var gameInterval = setInterval(function () {
   increaseScore();
 }, config.gameSpeed);
 
+function setGameSpeed() {
+  config.gameSpeed = config.gameSpeed + 100;
+
+}
+
 function generateElementPosition() {
   return {
     rowPos: -1,
@@ -113,9 +118,15 @@ function controlSurfer() {
   createElementNode(config.surferInitPos).removeClass('kiter');
   switch (config.surferInitDir) {
     case directions.LEFT:
+      if(config.surferInitPos.colPos < 1) {
+        break;
+      }
       moveSurfer(directions.LEFT);
       break;
     case directions.RIGHT:
+      if(config.surferInitPos.colPos > 5) {
+        break;
+      }
       moveSurfer(directions.RIGHT);
       break;
     default:
@@ -187,6 +198,7 @@ function increaseScore() {
 function gameOver() {
   clearInterval(gameInterval);
 }
+
 
 function setControls() {
   $(document).keydown(function (e) {
