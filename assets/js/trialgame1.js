@@ -59,10 +59,9 @@ var gameInterval = setInterval(function () {
 
 function setGameSpeed() {
   config.gameSpeed = config.gameSpeed + 100;
-  
+
 }
 
-setInterval()
 function generateElementPosition() {
   return {
     rowPos: -1,
