@@ -25,6 +25,7 @@ var directions = {
 
 var woodCollection = createObstaclesCollection();
 var bonus = createBonus();
+var $restartButton = $('#restart-button');
 
 function createGameBoard() {
   var $gameBoard = $('<table>');
@@ -41,8 +42,9 @@ function createGameBoard() {
   $('#gameboard-container').append($gameBoard);
 }
 
+createGameBoard(config.boardRows, config.boardColumns);
+
 function startGame() {
-  createGameBoard(config.boardRows, config.boardColumns);
   createElementNode(config.surferInitPos).addClass('kiter');
   setInterval(colorBoard, 0);
   setInterval(controlSurfer, 0);
@@ -61,7 +63,7 @@ var gameSpeedInterval = setInterval(function () {
   setGameSpeed();}, 2000);
 
 function setGameSpeed() {
-  config.gameSpeed = config.gameSpeed - 25;
+  config.gameSpeed = config.gameSpeed - 10;
   clearInterval(gameInterval);
   gameInterval = setInterval(updateGame, config.gameSpeed);
   $('#current-speed').text(config.gameSpeed);
@@ -192,6 +194,7 @@ function collectBonus() {
   if ($surferCell.hasClass('bonus')) {
     console.log('śmigasz Wojk');
     config.score = config.score + 200;
+    $surferCell.addClass('bonus-animation');
   }
 }
 
@@ -219,8 +222,11 @@ function setControls() {
 
 function restartGame() {
   startGame();
-
+  updateGame();
+  $('#game-over-popup').css({'top': -1000 + 'px'});
 }
+
+$restartButton.on('click', restartGame);
 
 setControls();
 startGame();

@@ -36,6 +36,11 @@ table {
   background: url('../image/kaszeb.png') no-repeat, #008dcd;
   background-size: 100% auto;
 }
+
+.bonus-animation {
+  transition: .2s linear;
+}
+
 /*.score-container {*/
   /*position: absolute;*/
   /*left: 0;*/
