@@ -2,11 +2,11 @@ var config = {
   gameSpeed: 300,
   score: 0,
   snakeDirection: 4,
-  boardRows: 15,
+  boardRows: 10,
   boardColumns: 7,
   obstaclesAmount: 5,
   obstaclesFinishRow: 8,
-  surferInitPosRow: 14,
+  surferInitPosRow: 9,
   surferInitPosCol: 5,
   surferInitDir: 0
 };
@@ -52,7 +52,8 @@ function createGameBoard() {
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
-  updateGame();
+
+  setInterval(colorBoard, 50);
 
 }
 
@@ -81,18 +82,21 @@ function moveObstacles() {
     woodCollection[j].rowPos += 1;
     var nextPos = $('#game-cell_' + woodCollection[j].rowPos + '_' + woodCollection[j].colPos);
     nextPos.addClass('obstacle');
+    console.log(nextPos.attr('class'));
     if (woodCollection[j].rowPos === config.obstaclesFinishRow) {
       woodCollection.push(generateObstacleandBonusPosition());
     }
   }
+
 }
 
 function moveBonus() {
-  var bonusNode = $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
-  bonusNode = $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus');
+  $('#game-cell_' + bonus.rowPos + '_' + bonus.colPos).removeClass('bonus');
+  $('#game-cell_' + (bonus.rowPos += 1) + '_' + bonus.colPos).addClass('bonus').removeClass('obstacle');
   if (bonus.rowPos === config.boardRows + 4) {                                         //problem kumulacja komórek w razie liczby 10
     bonus = createObstaclesCollection()[0];
   }
+
 }
 
 function controlSurfer() {                                                                      //przesuwa się z nieskończoność
@@ -112,18 +116,67 @@ function controlSurfer() {                                                      
   }
 
   $('#game-cell_' + config.surferInitPosRow + '_' + config.surferInitPosCol).addClass('kiter');
+
+}
+// funkcja kolizji z przeszkodą
+function collisionWithWood() {
+  var $surferCell = $('.kiter');
+  if ($surferCell.hasClass('obstacle')) {
+    gameOver();
+    alert('cokolwiek, ale przegrałeś');
+  }
 }
 
-// function gameOver {
-//   if()
-// }
+function colorBoard() {
+  var cellRow = Math.floor(Math.random() * (config.boardRows));
+  var cellCol = Math.floor(Math.random() * (config.boardColumns));
 
-function updateGame() {
-  setInterval(moveObstacles, config.gameSpeed);
-  setInterval(moveBonus, config.gameSpeed);
-  setInterval(controlSurfer, 0);
+  var PickedCell = $('#game-cell_' + cellRow + '_' + cellCol);
+
+  PickedCell.animate({
+    backgroundColor: '#008dcd'
+  }, {
+    duration: 500,
+    complete: function () {
+      PickedCell.animate({
+        backgroundColor: '#007bb4'
+      }, {
+        duration: 1500,
+        complete: function () {
+          PickedCell.animate({
+            backgroundColor: '#009fe7'
+          }, {
+            duration: 1000,
+          })
+        }
+      })
+    }
+  })
+
+
 }
 
+
+
+function collectBonus() {
+  var $surferCell = $('.kiter');
+  if ($surferCell.hasClass('bonus')) {
+    console.log('śmigasz Wojk');
+  }
+}
+
+var inta = setInterval(function () {
+  moveObstacles();
+  moveBonus();
+  controlSurfer();
+  collisionWithWood();
+  collectBonus();
+
+}, config.gameSpeed);
+
+function gameOver() {
+  clearInterval(inta);
+}
 
 $(document).keydown(function (e) {
   if (e.keyCode === controls.LEFT_ARROW) {
@@ -132,5 +185,6 @@ $(document).keydown(function (e) {
     config.surferInitDir = directions.RIGHT;
   }
 });
+
 
 startGame();

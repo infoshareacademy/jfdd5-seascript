@@ -15,24 +15,30 @@ table {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 50%;
 }
 
 .cell {
-  background: steelblue;
+  background: #008dcd;
   border: 0;
 }
 
 .kiter {
-  background-color: red;
+  background: url('../image/kiter-right.png') no-repeat, #008dcd;
+  background-size: 100% auto;
 }
 
 .obstacle {
-  background: url('../image/wood.png'), steelblue;
-  background-size: cover;
+  background: url('../image/wood.png') no-repeat, #008dcd;
+  background-size: 100% auto;
 }
 
 .bonus {
-  background: url('../image/kaszebe_turbo.jpg');
-  background-size: auto;
+  background: url('../image/kaszeb.png') no-repeat, #008dcd;
+  background-size: 100% auto;
+}
+.score-container {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
