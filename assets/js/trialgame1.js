@@ -3,8 +3,8 @@ var config = {
   score: 0,
   snakeDirection: 4,
   boardRows: 10,
-  boardColumns: 7,
-  obstaclesAmount: 5,
+  boardColumns: 10,
+  obstaclesAmount: 7,
   obstaclesFinishRow: 8,
   surferInitPos: {
     rowPos: 9,
@@ -45,13 +45,13 @@ function createGameBoard() {
 function startGame() {
   createGameBoard(config.boardRows, config.boardColumns);
   createElementNode(config.surferInitPos).addClass('kiter');
-  setInterval(colorBoard, 50);
+  setInterval(colorBoard, 0);
+  setInterval(controlSurfer, 0);
 }
 
 var gameInterval = setInterval(function () {
   moveObstacles();
   moveBonus();
-  controlSurfer();
   collisionWithWood();
   collectBonus();
   increaseScore();
@@ -85,7 +85,7 @@ function updateElementNode(element) {
 }
 
 function moveObstacles() {
-  $.each(woodCollection, function(index, obstacle){
+  $.each(woodCollection, function (index, obstacle) {
     createElementNode(obstacle).removeClass('obstacle');
     obstacle.rowPos += 1;
 
@@ -134,7 +134,7 @@ function collisionWithWood() {
 
 function showGameOverPopUp() {
   $('#game-over-popup').css({'top': 300 + 'px'});
-  $('#final-score').text(config.score);
+  $('#final-score').text(config.score + 10);
 }
 
 function colorBoard() {
@@ -157,6 +157,13 @@ function colorBoard() {
             backgroundColor: '#009fe7'
           }, {
             duration: 1000,
+            complete: function () {
+              PickedCell.animate({
+                backgroundColor: '#008dcd'
+              }, {
+                duration: 1500
+              })
+            }
           })
         }
       })
@@ -173,7 +180,7 @@ function collectBonus() {
 }
 
 function increaseScore() {
-  config.score = config.score + 50;
+  config.score = config.score + 10;
   $('#current-score').text(config.score);
 }
 
