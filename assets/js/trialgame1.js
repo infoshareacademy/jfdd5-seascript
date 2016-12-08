@@ -10,7 +10,8 @@ var config = {
     rowPos: 9,
     colPos: 3
   },
-  surferInitDir: "none"
+  surferInitDir: "none",
+  gameSpeedInterval: 2000
 };
 
 var controls = {
@@ -26,6 +27,7 @@ var directions = {
 var woodCollection = createObstaclesCollection();
 var bonus = createBonus();
 var $restartButton = $('#restart-button');
+$restartButton.on('click', restartGame);
 
 function createGameBoard() {
   var $gameBoard = $('<table>');
@@ -69,7 +71,7 @@ function setGameSpeed() {
 function setupMainIntervals(){
   gameInterval = setInterval(updateGame, config.gameSpeed);
   gameSpeedInterval = setInterval(function () {
-    setGameSpeed();}, 2000);
+    setGameSpeed();}, config.gameSpeedInterval);
 }
 
 function generateElementPosition() {
@@ -209,6 +211,7 @@ function increaseScore() {
 function gameOver() {
   clearInterval(gameInterval);
   clearInterval(gameSpeedInterval);
+  config.gameSpeed = 500;
 }
 
 function setControls() {
@@ -225,13 +228,10 @@ function setControls() {
 
 function restartGame() {
   config.score = 0;
-  config.gameSpeed = 500;
   startGame();
   updateGame();
   $('#game-over-popup').css({'top': -1000 + 'px'});
 }
-
-$restartButton.on('click', restartGame);
 
 setControls();
 startGame();
