@@ -68,3 +68,7 @@ table {
 .pop-up {
   display: none;
 }
+
+.bonus-animation {
+  transition: .2s linear;
+}
