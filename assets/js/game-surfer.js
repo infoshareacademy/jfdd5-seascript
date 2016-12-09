@@ -231,7 +231,10 @@ function restartGame() {
   config.score = 0;
   startGame();
   updateGame();
-  $('#game-over-popup').css({'top': -1000 + 'px'});
+  $('.game-over-popup').addClass('pop-up');
+  $('.pop-up').removeClass('game-over-popup');
+
+  // $('#game-over-popup').css({'top': -1000 + 'px'});
 }
 
 setControls();
