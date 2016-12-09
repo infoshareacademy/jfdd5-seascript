@@ -41,7 +41,7 @@
   font-size: 1.5em;
 }
 
-.teaser div:nth-child(3) {
+.teaser-button-div {
   position: absolute;
   bottom: 0;
   padding: 50px 0;
