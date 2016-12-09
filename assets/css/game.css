@@ -1,0 +1,75 @@
+#game-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: none;
+}
+
+
+table {
+  height: 100vh;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: inherit;
+  border: 1px solid;
+}
+
+.game-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.cell {
+  background: #008dcd;
+  border: 0;
+
+  /*width: 100px;*/
+}
+
+.kiter {
+  background: url('../image/kiter-right.png') no-repeat, #008dcd;
+  background-size: 100% auto;
+}
+
+.obstacle {
+  background: url('../image/wood.png') no-repeat, #008dcd;
+  background-size: 100% auto;
+}
+
+.bonus {
+  background: url('../image/kaszeb.png') no-repeat, #008dcd;
+  background-size: 100% auto;
+}
+.score-container {
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  background-color: #008dcd;
+  color: white;
+}
+
+
+.game-over-popup {
+  display: block;
+  position: absolute;
+  text-align: center;
+  padding: 20px;
+  background-color: #555;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  transition: top .3s linear;
+}
+.pop-up {
+  display: none;
+}
+
+.bonus-animation {
+  transition: .2s linear;
+}
