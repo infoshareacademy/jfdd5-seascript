@@ -28,8 +28,13 @@ var woodCollection = createObstaclesCollection();
 var bonus = createBonus();
 var $restartButton = $('#restart-button');
 $restartButton.on('click', restartGame);
+
 var $exitGameButton = $('#exit-game-button');
 $exitGameButton.on('click', exitGame);
+
+var $startButton = $('#start-button');
+$startButton.on('click', startGame);
+$startButton.on('click', hideStartButton);
 
 
 function createGameBoard() {
@@ -244,5 +249,9 @@ function exitGame() {
   $('#game-container').slideToggle(300);
 }
 
+function hideStartButton() {
+  $('.start-button-container').slideToggle(300);
+}
+
 setControls();
-startGame();
+// startGame();
