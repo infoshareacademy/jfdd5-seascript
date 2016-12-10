@@ -163,10 +163,17 @@ function collisionWithWood() {
   }
 }
 
+function addGamerName() {
+  var gamerName = document.getElementById('newsletter-input-text-name').value;
+  alert(gamerName);
+  // nie umiem tutaj zrobic tak żeby dodała się zmienna gamerName do diva o clasie pop-up
+}
+
 function showGameOverPopUp() {
   $('.pop-up').addClass('game-over-popup');
   $('.game-over-popup').removeClass('pop-up');
   $('#final-score').text(config.score + 10);
+  addGamerName();
 }
 
 function colorBoard() {
