@@ -59,7 +59,8 @@
   color: white;
   cursor: pointer;
   text-align: center;
-  padding: 5px 30px;
+  font-size: 1em;
+  padding: 10px 30px;
   margin: 5px;
   border-radius: 10px;
   border: 1px solid white;
