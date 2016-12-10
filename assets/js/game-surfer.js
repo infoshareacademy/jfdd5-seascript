@@ -165,8 +165,7 @@ function collisionWithWood() {
 
 function addGamerName() {
   var gamerName = document.getElementById('newsletter-input-text-name').value;
-  alert(gamerName);
-  // nie umiem tutaj zrobic tak żeby dodała się zmienna gamerName do diva o clasie pop-up
+  $('.gamerName').text(gamerName);
 }
 
 function showGameOverPopUp() {
