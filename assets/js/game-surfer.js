@@ -29,6 +29,14 @@ var bonus = createBonus();
 var $restartButton = $('#restart-button');
 $restartButton.on('click', restartGame);
 
+var $exitGameButton = $('#exit-game-button');
+$exitGameButton.on('click', exitGame);
+
+var $startButton = $('#start-button');
+$startButton.on('click', startGame);
+$startButton.on('click', hideStartButton);
+
+
 function createGameBoard() {
   var $gameBoard = $('<table>');
   for (var i = 0; i < config.boardRows; i++) {
@@ -231,8 +239,19 @@ function restartGame() {
   config.score = 0;
   startGame();
   updateGame();
-  $('#game-over-popup').css({'top': -1000 + 'px'});
+  $('.game-over-popup').addClass('pop-up');
+  $('.pop-up').removeClass('game-over-popup');
+
+  // $('#game-over-popup').css({'top': -1000 + 'px'});
+}
+
+function exitGame() {
+  $('#game-container').slideToggle(300);
+}
+
+function hideStartButton() {
+  $('.start-button-container').slideToggle(300);
 }
 
 setControls();
-startGame();
+// startGame();
