@@ -163,10 +163,16 @@ function collisionWithWood() {
   }
 }
 
+function addGamerName() {
+  var gamerName = document.getElementById('newsletter-input-text-name').value;
+  $('.gamerName').text(gamerName);
+}
+
 function showGameOverPopUp() {
   $('.pop-up').addClass('game-over-popup');
   $('.game-over-popup').removeClass('pop-up');
   $('#final-score').text(config.score + 10);
+  addGamerName();
 }
 
 function colorBoard() {
