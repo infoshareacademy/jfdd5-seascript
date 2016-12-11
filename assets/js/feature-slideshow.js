@@ -8,7 +8,7 @@
     prevSlideBtn = document.getElementsByClassName("prev-slide")[0],
     nextSlideBtn = document.getElementsByClassName("next-slide")[0],
     numberOfSlides = featureSlides.length,
-    slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+    slidesInterval;
 
   function addListenersToDotsAndArrows() {
     prevSlideBtn.addEventListener('click', backSlide);
@@ -77,6 +77,7 @@
   addListenersToDotsAndArrows();
   displaySlides();
 
+
   var additionalTopMarginFeatureSection = 200,
     offsetFeaturesSection = $('#features').offset().top - additionalTopMarginFeatureSection,
     isAlreadyInView = false;
@@ -88,8 +89,7 @@
   function activateSlideshow() {
     if (isFeaturesSectionInView() && !isAlreadyInView) {
       isAlreadyInView = true;
-      $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
-      console.log("xxx");
+      slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
     }
   }
 

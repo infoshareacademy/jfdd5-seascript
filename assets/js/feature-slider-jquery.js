@@ -1,11 +1,11 @@
 (function() {
-  var slidePos = 0,
-      $featureSlides = $(".feature-slide"),
-      $dotBtns = $(".dot-slide"),
-      $prevSlideBtn = $(".prev-slide"),
-      $nextSlideBtn = $(".next-slide"),
-      numberOfSlides = $featureSlides.length,
-      $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+  var slidePos = 1,
+    $featureSlides = $(".feature-slide"),
+    $dotBtns = $(".dot-slide"),
+    $prevSlideBtn = $(".prev-slide"),
+    $nextSlideBtn = $(".next-slide"),
+    numberOfSlides = $featureSlides.length,
+    $slidesInterval;
 
   function addEventsToDotsAndArrows() {
     $prevSlideBtn.on('click', backSlide);
@@ -38,14 +38,13 @@
   }
 
   function setupInitialStateOfSlides() {
-      $featureSlides.each(function() {
-        $(this).css('display', 'none')
-        });
-      $dotBtns.each(function() {
-        $(this).removeClass('active');
-      });
+    $featureSlides.each(function() {
+      $(this).css('display', 'none')
+    });
+    $dotBtns.each(function() {
+      $(this).removeClass('active');
+    });
   }
-
 
   function activateSlide() {
     if (slidePos > numberOfSlides) {
@@ -75,6 +74,7 @@
   addEventsToDotsAndArrows();
   displaySlides();
 
+
   var additionalTopMarginFeatureSection = 200,
     offsetFeaturesSection = $('#features').offset().top - additionalTopMarginFeatureSection,
     isAlreadyInView = false;
@@ -87,11 +87,12 @@
     if (isFeaturesSectionInView() && !isAlreadyInView) {
       isAlreadyInView = true;
       $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
-      console.log("xxx");
     }
   }
 
   $(window).on('scroll', activateSlideshow);
 
 })();
+
+
 
