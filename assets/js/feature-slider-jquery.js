@@ -94,3 +94,4 @@
   $(window).on('scroll', activateSlideshow);
 
 })();
+
