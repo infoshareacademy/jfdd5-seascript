@@ -1,51 +1,81 @@
-/**
- * Created by Agnieszka on 2016-12-01.
- */
-(function() {
+(function () {
   var slidePos = 1,
-    featureSlides = document.getElementsByClassName("feature-slide"),
-    dotBtns = document.getElementsByClassName("dot-slide"),
-    prevSlideBtn = document.getElementsByClassName("prev-slide")[0],
-    nextSlideBtn = document.getElementsByClassName("next-slide")[0],
-    numberOfSlides = featureSlides.length,
-    slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+    $featureSlides = $(".feature-slide"),
+    $dotBtns = $(".dot-slide"),
+    $prevSlideBtn = $(".prev-slide"),
+    $nextSlideBtn = $(".next-slide"),
+    numberOfSlides = $featureSlides.length,
+    $slidesInterval,
+    additionalTopMarginFeatureSection = 200,
+    offsetFeaturesSection = $('#features').offset().top - additionalTopMarginFeatureSection,
+    isSectionInView = false,
+    screenBreakPoint = 992;
 
-  function addListenersToDotsAndArrows() {
-    prevSlideBtn.addEventListener('click', backSlide);
-    nextSlideBtn.addEventListener('click', nextSlide);
-    for (var i = 0; i < dotBtns.length; i++) {
-      var currentDot = dotBtns[i];
-      currentDot.setAttribute("data-dot-index", (i + 1));
-      currentDot.addEventListener('click', function(event) {
-        var dot = event.currentTarget;
-        var dotNumber = dot.getAttribute("data-dot-index");
-        currentSlide(dotNumber);
-      });
+  addEventsToDotsAndArrows();
+
+  function isWindowSmallerThanBreakPoint() {
+    return screenBreakPoint > window.innerWidth;
+  }
+
+  $(window).on('resize', function () {
+    if (!isWindowSmallerThanBreakPoint()) {
+      displaySlides();
+      $(window).on('scroll', activateSlideshow);
     }
+    if (isWindowSmallerThanBreakPoint()) {
+      $featureSlides.css('display', 'block');
+    }
+  });
+
+  $(window).on('load', function () {
+    if (!isWindowSmallerThanBreakPoint()) {
+      displaySlides();
+      $(window).on('scroll', activateSlideshow);
+    }
+  });
+
+  function isFeaturesSectionInView() {
+    return $(this).scrollTop() > offsetFeaturesSection;
+  }
+
+  function addEventsToDotsAndArrows() {
+    $prevSlideBtn.on('click', backSlide);
+    $nextSlideBtn.on('click', nextSlide);
+    $.each($dotBtns, function (index) {
+      $(this).data('dot-index', (index + 1));
+      $(this).click(function () {
+        var dotIndex = $(this).data('dot-index');
+        currentSlide(dotIndex);
+      });
+    });
   }
 
   function backSlide() {
     slidePos = slidePos - 1;
-    clearInterval(slidesInterval);
+    clearInterval($slidesInterval);
     displaySlides();
   }
 
   function nextSlide() {
     slidePos = slidePos + 1;
-    clearInterval(slidesInterval);
+    clearInterval($slidesInterval);
     displaySlides();
   }
 
   function currentSlide(currentSlidePos) {
-    clearInterval(slidesInterval);
+    clearInterval($slidesInterval);
     slidePos = currentSlidePos;
     displaySlides();
   }
 
   function setupInitialStateOfSlides() {
-    for (var i = 0; i < numberOfSlides; i++) {
-      featureSlides[i].style.display = "none";
-      dotBtns[i].className = dotBtns[i].className.replace(" active", "");
+    if (!isWindowSmallerThanBreakPoint()) {
+      $featureSlides.each(function () {
+        $(this).css('display', 'none')
+      });
+      $dotBtns.each(function () {
+        $(this).removeClass('active');
+      });
     }
   }
 
@@ -55,17 +85,21 @@
     }
 
     var currentSlideNumber = slidePos - 1;
-    featureSlides[currentSlideNumber].style.display = "block";
-    dotBtns[currentSlideNumber].className += " active";
+    $featureSlides.eq(currentSlideNumber).css('display', 'block');
+    $dotBtns.eq(currentSlideNumber).addClass('active');
   }
 
   function displaySlides() {
+    if (isWindowSmallerThanBreakPoint()) {
+      return;
+    }
+
     setupInitialStateOfSlides();
+    activateSlide();
+
     if (slidePos < 1) {
       slidePos = numberOfSlides;
     }
-
-    activateSlide();
   }
 
   function automaticSlidesDisplay() {
@@ -74,6 +108,17 @@
     activateSlide();
   }
 
-  addListenersToDotsAndArrows();
-  displaySlides();
+  function activateSlideshow() {
+    if (isWindowSmallerThanBreakPoint()) {
+      return;
+    }
+
+    if (isFeaturesSectionInView() && !isSectionInView) {
+      isSectionInView = true;
+      $slidesInterval = setInterval(automaticSlidesDisplay, 3000);
+    }
+  }
 })();
+
+
+
