@@ -74,4 +74,5 @@
 
   addEventsToDotsAndArrows();
   displaySlides();
+
 })();
