@@ -51,10 +51,13 @@ table {
   left: 0;
   bottom: 20%;
   text-align: center;
-  width: 100px;
+  width: 150px;
+  line-height: 1.3em;
+  border-radius: 10px;
   padding: 10px;
   background-color: #008dcd;
   color: white;
+  margin-left: 15px;
 }
 
 
@@ -63,14 +66,31 @@ table {
   position: absolute;
   text-align: center;
   padding: 20px;
-  background-color: #555;
-  top: 50%;
+  background-color: #008dcd;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   width: 300px;
-  height: 200px;
+  height: 300px;
   transition: top .3s linear;
+  color: white;
+  border: solid 2px white;
+  border-radius: 20px;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
+
+.game-over-popup button {
+  margin-top: 20px;
+  padding: 5px;
+  font-size: 1.3em;
+  background-color: rgba(0,0,0,0.1);
+  border-color: white;
+  border-radius: 5px;
+  color:white;
+}
+
+
 .pop-up {
   display: none;
 }
@@ -84,12 +104,25 @@ table {
   position: absolute;
   text-align: center;
   padding: 20px;
-  background-color: #777;
-  top: 50%;
+  background-color: #008dcd;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   width: 300px;
   height: 200px;
   transition: top .3s linear;
+  color: white;
+  border: solid 2px white;
+  border-radius: 20px;
+  font-size: 1.2em;
 }
 
+.start-button-container button {
+  margin-top:50px;
+  padding: 5px;
+  font-size: 1.3em;
+  background-color: rgba(0,0,0,0.1);
+  border-color: white;
+  border-radius: 5px;
+  color:white;
+}
