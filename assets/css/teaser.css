@@ -23,14 +23,14 @@
 .teaser h1 {
   font-weight: 400;
   font-size: 3em;
-  color: grey;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 .teaser h2, .teaser p {
   padding-top: 1em;
   font-weight: 300;
-  color: grey;
+  color: #ffffff;
 }
 
 .teaser h2 {
@@ -50,7 +50,7 @@
 .teaser button {
   width: 100px;
   height: 100px;
-  background: inherit;
+  background: rgba(0, 106, 154, 1);
   color: #fff;
   border-radius: 5px;
   transform: rotate(45deg);
