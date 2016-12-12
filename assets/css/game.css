@@ -38,7 +38,7 @@ table {
 }
 
 .obstacle {
-  background: url('../image/wood.png') no-repeat, #008dcd;
+  background: url('../image/woodBox2.png') no-repeat, #008dcd;
   background-size: 100% auto;
 }
 
