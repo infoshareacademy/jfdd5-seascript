@@ -8,7 +8,7 @@
     prevSlideBtn = document.getElementsByClassName("prev-slide")[0],
     nextSlideBtn = document.getElementsByClassName("next-slide")[0],
     numberOfSlides = featureSlides.length,
-    slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+    slidesInterval;
 
   function addListenersToDotsAndArrows() {
     prevSlideBtn.addEventListener('click', backSlide);

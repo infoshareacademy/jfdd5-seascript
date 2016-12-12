@@ -16,6 +16,7 @@ $(function () {
 
   function fadeInTeamPhotos() {
     if (isTeamSectionInView()) {
+      console.log("ja tez");
       $teamPhotoContainer.each(fadeInPhoto);
     }
   }
