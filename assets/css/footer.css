@@ -13,6 +13,14 @@
     font-family: 'Lobster', cursive;
 }
 
+.social-media {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-decoration: none;
+    color: #fff;
+}
+
 .product-conditions a{
     text-decoration: underline;
     color: #555;

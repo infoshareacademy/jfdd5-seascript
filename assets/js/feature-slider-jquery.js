@@ -1,11 +1,42 @@
-(function() {
-  var slidePos = 0,
-      $featureSlides = $(".feature-slide"),
-      $dotBtns = $(".dot-slide"),
-      $prevSlideBtn = $(".prev-slide"),
-      $nextSlideBtn = $(".next-slide"),
-      numberOfSlides = $featureSlides.length,
-      $slidesInterval =  setInterval(automaticSlidesDisplay, 3000);
+(function () {
+  var slidePos = 1,
+    $featureSlides = $(".feature-slide"),
+    $dotBtns = $(".dot-slide"),
+    $prevSlideBtn = $(".prev-slide"),
+    $nextSlideBtn = $(".next-slide"),
+    numberOfSlides = $featureSlides.length,
+    $slidesInterval,
+    additionalTopMarginFeatureSection = 200,
+    offsetFeaturesSection = $('#features').offset().top - additionalTopMarginFeatureSection,
+    isSectionInView = false,
+    screenBreakPoint = 992;
+
+  addEventsToDotsAndArrows();
+
+  function isWindowSmallerThanBreakPoint() {
+    return screenBreakPoint > window.innerWidth;
+  }
+
+  $(window).on('resize', function () {
+    if (!isWindowSmallerThanBreakPoint()) {
+      displaySlides();
+      $(window).on('scroll', activateSlideshow);
+    }
+    if (isWindowSmallerThanBreakPoint()) {
+      $featureSlides.css('display', 'block');
+    }
+  });
+
+  $(window).on('load', function () {
+    if (!isWindowSmallerThanBreakPoint()) {
+      displaySlides();
+      $(window).on('scroll', activateSlideshow);
+    }
+  });
+
+  function isFeaturesSectionInView() {
+    return $(this).scrollTop() > offsetFeaturesSection;
+  }
 
   function addEventsToDotsAndArrows() {
     $prevSlideBtn.on('click', backSlide);
@@ -38,14 +69,15 @@
   }
 
   function setupInitialStateOfSlides() {
-      $featureSlides.each(function() {
+    if (!isWindowSmallerThanBreakPoint()) {
+      $featureSlides.each(function () {
         $(this).css('display', 'none')
-        });
-      $dotBtns.each(function() {
+      });
+      $dotBtns.each(function () {
         $(this).removeClass('active');
       });
+    }
   }
-
 
   function activateSlide() {
     if (slidePos > numberOfSlides) {
@@ -58,6 +90,10 @@
   }
 
   function displaySlides() {
+    if (isWindowSmallerThanBreakPoint()) {
+      return;
+    }
+
     setupInitialStateOfSlides();
     activateSlide();
 
@@ -72,6 +108,17 @@
     activateSlide();
   }
 
-  addEventsToDotsAndArrows();
-  displaySlides();
+  function activateSlideshow() {
+    if (isWindowSmallerThanBreakPoint()) {
+      return;
+    }
+
+    if (isFeaturesSectionInView() && !isSectionInView) {
+      isSectionInView = true;
+      $slidesInterval = setInterval(automaticSlidesDisplay, 3000);
+    }
+  }
 })();
+
+
+

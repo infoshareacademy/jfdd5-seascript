@@ -1,16 +1,17 @@
 var config = {
-  gameSpeed: 300,
+  gameSpeed: 500,
   score: 0,
   snakeDirection: 4,
   boardRows: 10,
-  boardColumns: 7,
-  obstaclesAmount: 5,
+  boardColumns: 9,
+  obstaclesAmount: 7,
   obstaclesFinishRow: 8,
   surferInitPos: {
     rowPos: 9,
     colPos: 3
   },
-  surferInitDir: "none"
+  surferInitDir: "none",
+  gameSpeedInterval: 2000
 };
 
 var controls = {
@@ -25,6 +26,16 @@ var directions = {
 
 var woodCollection = createObstaclesCollection();
 var bonus = createBonus();
+var $restartButton = $('#restart-button');
+$restartButton.on('click', restartGame);
+
+var $exitGameButton = $('#exit-game-button');
+$exitGameButton.on('click', exitGame);
+
+var $startButton = $('#start-button');
+$startButton.on('click', startGame);
+$startButton.on('click', hideStartButton);
+
 
 function createGameBoard() {
   var $gameBoard = $('<table>');
@@ -38,24 +49,38 @@ function createGameBoard() {
       $gameBoardHeight.append($gameBoardWidth);
     }
   }
-
   $('#gameboard-container').append($gameBoard);
 }
 
+createGameBoard(config.boardRows, config.boardColumns);
+
 function startGame() {
-  createGameBoard(config.boardRows, config.boardColumns);
   createElementNode(config.surferInitPos).addClass('kiter');
-  setInterval(colorBoard, 50);
+  setInterval(colorBoard, 0);
+  setInterval(controlSurfer, 0);
+  setupMainIntervals();
 }
 
-var gameInterval = setInterval(function () {
+function updateGame() {
   moveObstacles();
   moveBonus();
-  controlSurfer();
   collisionWithWood();
   collectBonus();
   increaseScore();
-}, config.gameSpeed);
+}
+
+function setGameSpeed() {
+  config.gameSpeed = config.gameSpeed - 10;
+  clearInterval(gameInterval);
+  gameInterval = setInterval(updateGame, config.gameSpeed);
+  $('#current-speed').text(config.gameSpeed);
+}
+
+function setupMainIntervals(){
+  gameInterval = setInterval(updateGame, config.gameSpeed);
+  gameSpeedInterval = setInterval(function () {
+    setGameSpeed();}, config.gameSpeedInterval);
+}
 
 function generateElementPosition() {
   return {
@@ -85,7 +110,7 @@ function updateElementNode(element) {
 }
 
 function moveObstacles() {
-  $.each(woodCollection, function(index, obstacle){
+  $.each(woodCollection, function (index, obstacle) {
     createElementNode(obstacle).removeClass('obstacle');
     obstacle.rowPos += 1;
 
@@ -113,9 +138,15 @@ function controlSurfer() {
   createElementNode(config.surferInitPos).removeClass('kiter');
   switch (config.surferInitDir) {
     case directions.LEFT:
+      if(config.surferInitPos.colPos < 1) {
+        break;
+      }
       moveSurfer(directions.LEFT);
       break;
     case directions.RIGHT:
+      if(config.surferInitPos.colPos > config.boardColumns - 2) {
+        break;
+      }
       moveSurfer(directions.RIGHT);
       break;
     default:
@@ -132,11 +163,16 @@ function collisionWithWood() {
   }
 }
 
+function addGamerName() {
+  var gamerName = document.getElementById('newsletter-input-text-name').value;
+  $('.gamerName').text(gamerName);
+}
+
 function showGameOverPopUp() {
-  // $('#game-over-popup').css({'top': 300 + 'px'});
   $('.pop-up').addClass('game-over-popup');
   $('.game-over-popup').removeClass('pop-up');
-  $('#final-score').text(config.score);
+  $('#final-score').text(config.score + 10);
+  addGamerName();
 }
 
 function colorBoard() {
@@ -159,6 +195,13 @@ function colorBoard() {
             backgroundColor: '#009fe7'
           }, {
             duration: 1000,
+            complete: function () {
+              PickedCell.animate({
+                backgroundColor: '#008dcd'
+              }, {
+                duration: 1500
+              })
+            }
           })
         }
       })
@@ -171,16 +214,19 @@ function collectBonus() {
   if ($surferCell.hasClass('bonus')) {
     console.log('śmigasz Wojk');
     config.score = config.score + 200;
+    $surferCell.addClass('bonus-animation');
   }
 }
 
 function increaseScore() {
-  config.score = config.score + 50;
+  config.score = config.score + 10;
   $('#current-score').text(config.score);
 }
 
 function gameOver() {
   clearInterval(gameInterval);
+  clearInterval(gameSpeedInterval);
+  config.gameSpeed = 500;
 }
 
 function setControls() {
@@ -195,5 +241,23 @@ function setControls() {
   });
 }
 
+function restartGame() {
+  config.score = 0;
+  startGame();
+  updateGame();
+  $('.game-over-popup').addClass('pop-up');
+  $('.pop-up').removeClass('game-over-popup');
+
+  // $('#game-over-popup').css({'top': -1000 + 'px'});
+}
+
+function exitGame() {
+  $('#game-container').slideToggle(300);
+}
+
+function hideStartButton() {
+  $('.start-button-container').slideToggle(300);
+}
+
 setControls();
-startGame();
+// startGame();
