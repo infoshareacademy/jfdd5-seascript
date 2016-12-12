@@ -31,7 +31,7 @@ table {
 }
 
 .kiter {
-  background: url('../image/pokeball.png') no-repeat, #008dcd;
+  background: url('../image/pokeball.PNG') no-repeat, #008dcd;
   background-size: 100% auto;
 }
 
