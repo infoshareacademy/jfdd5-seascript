@@ -18,10 +18,10 @@ function detectmob() {
 }
 
 if (detectmob() === false) {
-  $(window).on('load resize scroll', parabole_tanczo);
+  $(window).on('load resize scroll', paralaxa_wave);
 }
 
-function parabole_tanczo() {
+function paralaxa_wave() {
 
   var fala1 = {
     paddingTop: (-1 * $(document).scrollTop() + 50),
