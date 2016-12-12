@@ -1,11 +1,15 @@
 .teaser {
+  background: rgb(0,159,231);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0,159,231,1) 0%, rgba(0,123,180,1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0,159,231,1) 0%,rgba(0,123,180,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(0,159,231,1) 0%,rgba(0,123,180,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009fe7', endColorstr='#007bb4',GradientType=1 );
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background: #006a9a;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   overflow: hidden;
@@ -50,8 +54,9 @@
 .teaser button {
   width: 100px;
   height: 100px;
-  background: rgba(0, 106, 154, 1);
+  background: #009fe7;
   color: #fff;
+  font-size: 1.5em;
   border-radius: 5px;
   transform: rotate(45deg);
   transition: 1s ease;
@@ -113,4 +118,33 @@
   padding-top: 50px;
   margin-top: 50px;
   transition: 4s;
+}
+
+@media screen and (max-width: 800px) {
+
+  .teaser button {
+    background: #fff;
+    color: #009fe7;
+    font-size: 1.5em;
+    border-radius: 3px;
+  }
+  .btn-text a{
+    color: #009fe7;
+    text-decoration: none;
+  }
+
+
+  .fala-1 {
+    height: 200px;
+  }
+
+  .fala-2 {
+    height: 200px;
+  }
+
+  .fala-3 {
+    height: 200px;
+  }
+
+
 }
