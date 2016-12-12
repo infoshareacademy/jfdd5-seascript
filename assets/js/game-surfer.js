@@ -208,26 +208,6 @@ function colorBoard() {
     }
   })
 }
-//TODO
-// function createPokemon{
-//   var lottery = Math(floor(Math.random() * 3));
-//   switch (config.surferInitDir) {
-//     case directions.LEFT:
-//       if(config.surferInitPos.colPos < 1) {
-//         break;
-//       }
-//       moveSurfer(directions.LEFT);
-//       break;
-//     case directions.RIGHT:
-//       if(config.surferInitPos.colPos > config.boardColumns - 2) {
-//         break;
-//       }
-//       moveSurfer(directions.RIGHT);
-//       break;
-//     default:
-//       config.surferInitDir = "none";
-//   }
-// }
 
 function collectBonus() {
   var $surferCell = $('.kiter');

@@ -23,14 +23,14 @@
 .teaser h1 {
   font-weight: 400;
   font-size: 3em;
-  color: grey;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 .teaser h2, .teaser p {
   padding-top: 1em;
   font-weight: 300;
-  color: grey;
+  color: #ffffff;
 }
 
 .teaser h2 {
