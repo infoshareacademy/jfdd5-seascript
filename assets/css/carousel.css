@@ -16,6 +16,7 @@
 
 .slider-photo {
   max-width: 100%;
+  border-radius:7%;
 }
 
 .slider-arrow {
