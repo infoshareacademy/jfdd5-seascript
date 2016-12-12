@@ -6,6 +6,7 @@ var $nav = $('nav');
 var $navHeight = $nav.outerHeight();
 var $button = $nav.find('button');
 var ul = $nav.find('ul');
+var blacked = $('<li id="blacked"></li>');
 
 $(window).on('scroll', function () {
   var currentPos = $(this).scrollTop();
@@ -27,7 +28,6 @@ $(window).on('scroll', function () {
 
     if (currentPos >= top && currentPos <= bottom) {
       $nav.find('a').parent().removeClass('active-item');
-      // $(this).addClass('active-item');
       $nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('active-item');
     }
   });
@@ -42,7 +42,7 @@ $(window).resize(function () {
       e.preventDefault();
       var pos = $(id).offset().top;
       $('body, html').stop().animate({scrollTop: pos}, 1500, 'easeOutQuad');
-      ul.slideToggle(300);
+      ul.one().slideDown(300);
     });
   }
 });

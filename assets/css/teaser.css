@@ -50,7 +50,7 @@
 .teaser button {
   width: 100px;
   height: 100px;
-  background: inherit;
+  background: rgba(0, 106, 154, 1);
   color: #fff;
   border-radius: 5px;
   transform: rotate(45deg);
