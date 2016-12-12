@@ -28,22 +28,20 @@ table {
 .cell {
   background: #008dcd;
   border: 0;
-
-  /*width: 100px;*/
 }
 
 .kiter {
-  background: url('../image/kiter-right.png') no-repeat, #008dcd;
+  background: url('../image/pokeball.png') no-repeat, #008dcd;
   background-size: 100% auto;
 }
 
 .obstacle {
-  background: url('../image/wood.png') no-repeat, #008dcd;
+  background: url('../image/woodBox2.png') no-repeat, #008dcd;
   background-size: 100% auto;
 }
 
 .bonus {
-  background: url('../image/kaszeb.png') no-repeat, #008dcd;
+  background: url('../image/poke1.png') no-repeat, #008dcd;
   background-size: 100% auto;
 }
 .score-container {
